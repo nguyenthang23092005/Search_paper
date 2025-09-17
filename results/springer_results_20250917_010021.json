@@ -1,0 +1,52 @@
+[
+  {
+    "rank": 1,
+    "title": "Toward Reliable, Explainable, and Autonomous AI Sensing for Non-Destructive Testing and Evaluation",
+    "abstract": "Sensors play a central role in Non-Destructive Testing and Evaluation (NDT&E), which helps ensure the safety and reliability of materials and structures without causing any damage. As engineered systems become more complex and the push for predictive maintenance grows, traditional signal processing and rule-based decision-making are starting to fall short. This Collection of Discover Sensors invites research focused on next-generation AI techniques to improve how NDT&E sensor systems perceive, reason, and make decisions. While machine learning and deep learning have boosted tasks like defect detection and pattern recognition, they often lack important qualities such as context-awareness, the ability to explain their decisions, and the use of expert domain knowledge—features that are crucial in high-risk industrial settings. The goal is to move beyond basic data interpretation toward intelligent diagnostics, explainable decisions, and autonomous evaluation. Submissions are also encouraged that explore AI approaches capable of operating on edge devices, adapting to variable conditions, and delivering reliable results even with limited or noisy data for portable or in-situ inspections.",
+    "authors": "Not Available",
+    "link": "https://link.springer.com/collections/gjjjebebje",
+    "citations": "Not Available",
+    "status": "Not Available",
+    "pub_date": "2026-03-31"
+  },
+  {
+    "rank": 2,
+    "title": "Adaptive Positioning of a Mobile Robot for Precise Workstation Operation",
+    "abstract": "This study presents an adaptive positioning method for mobile cobots using a vision-based correction system integrated into a UR10 robotic arm. The approach involves two-stage positioning: the AMR (MiR100) docks at an initial location, then the vision system detects a reference marker to establish a local coordinate frame for precise task execution. This compensates for global positioning errors, enhancing repeatability and accuracy. Experimental validation on a CNC workstation confirmed improved alignment precision over standard AMR methods. The results highlight the potential of vision-based adaptive positioning for high-precision mobile cobot applications in dynamic industrial environments.",
+    "authors": "Not Available",
+    "link": "https://link.springer.com/chapter/10.1007/978-3-032-01517-4_26",
+    "citations": "Not Available",
+    "status": "Not Available",
+    "pub_date": "2026-01-01"
+  },
+  {
+    "rank": 3,
+    "title": "Multi-channel Heterogeneous Graph Transformer Based Unsupervised Anomaly Detection Model for IoT Time Series",
+    "abstract": "Detecting anomalies in multivariate time series (MTS) holds significance for monitoring the behavior of intelligent industrial and Internet of Things (IoT) systems. Nevertheless, due to the absence of anomaly labels in current IoT system data and the high-dimensional complexity of the data, constructing an anomaly detection model that accurately identifies anomalies while maintaining robustness poses a considerable challenge. The paper introduces an unsupervised anomaly detection model, the Multi-channel Heterogeneous Graph Transformer model for IoT Time Series Anomaly Detection (MC-HGT). Our model implements complex non-linear temporal feature extraction using TCN and SENet. The integration of parallel GNN and GAT within a heterogeneous graph neural network, connected with the Transformer network, efficiently discerns local and global temporal feature dependencies. It amplifies the model’s ability to extract temporal features by employing multi-channel feature fusion in conjunction with the Transformer. VAR is employed to capture additional linear features, facilitating the multi-channel fusion of linear and non-linear features to enhance model robustness. We evaluate the detection performance of MC-HGT against five baseline methods on three public datasets. The experimental findings reveal that the MC-HGT algorithm achieves a mean F1 Score of 0.905, surpassing similar algorithms by 6.93%, and a mean AUC of 0.943, exhibiting a 2.35% improvement over comparable algorithms.",
+    "authors": "Not Available",
+    "link": "https://link.springer.com/chapter/10.1007/978-3-031-93257-1_7",
+    "citations": "Not Available",
+    "status": "Not Available",
+    "pub_date": "2026-01-01"
+  },
+  {
+    "rank": 4,
+    "title": "AI for Better UX in Computer-Aided Engineering: Is Academia Catching Up with Industry Demands? A Multivocal Literature Review",
+    "abstract": "Computer-Aided Engineering (CAE) enables simulation experts to optimize complex models, but faces challenges in user experience (UX) that limit efficiency and accessibility. While artificial intelligence (AI) has demonstrated potential to enhance CAE processes, research integrating these fields with a focus on UX remains fragmented. This paper presents a multivocal literature review (MLR) examining how AI enhances UX in CAE software across both academic research and industry implementations. Our analysis reveals significant gaps between academic explorations and industry applications, with companies actively implementing LLMs, adaptive UIs, and recommender systems while academic research focuses primarily on technical capabilities without UX validation. Key findings demonstrate opportunities in AI-powered guidance, adaptive interfaces, and workflow automation that remain underexplored in current research. By mapping the intersection of these domains, this study provides a foundation for future work to address the identified research gaps and advance the integration of AI to improve CAE user experience.",
+    "authors": "Not Available",
+    "link": "https://link.springer.com/chapter/10.1007/978-3-032-04200-2_20",
+    "citations": "Not Available",
+    "status": "Not Available",
+    "pub_date": "2026-01-01"
+  },
+  {
+    "rank": 5,
+    "title": "Deep Learning-Driven X-Ray Digital Tomosynthesis (DT) Imaging for Aerospace Composite Inspection",
+    "abstract": "The structural integrity of aerospace-grade Glass Fiber Reinforced Polymer (GFRP) composites is critical, yet conventional non-destructive testing (NDT) methods often struggle to detect subsurface defects reliably due to poor signal-to-noise ratios, low contrast, and complex internal structures. To address these limitations, this study proposes a novel AI-driven framework that integrates low-power X-ray Digital Tomosynthesis (DT) imaging with state-of-the-art deep learning models for defect segmentation in composite materials. Specifically, two state-of-the-art instance segmentation models, YOLOv8 (You Only Look Once, version 8) and Detectron2, are employed to automatically segment flaws in the DT images of the composite specimens. A dedicated dataset of low-power X-ray DT scans of GFRP composite specimens with annotated defects was curated for training and evaluation. The segmentation performance of each model was quantitatively evaluated using metrics such as the Dice similarity coefficient and Intersection-over-Union (IoU), along with inference time measurements. Experimental results demonstrate that YOLOv8 processes images significantly faster (~6.9 ms per image) than Detectron2 (~10.3 ms), enabling near real-time analysis. Conversely, Detectron2 achieves a higher segmentation accuracy (Dice ~86% versus ~74% for YOLOv8), underscoring the trade-off between computational efficiency and segmentation precision. These findings validate the potential of combining low-power DT imaging with deep learning for high-fidelity defect identification, substantially improving the prospects for near real-time composite inspection. Future work will focus on further model optimization (e.g., via quantization and pruning) and the integration of this framework with autonomous robotic inspection systems, thereby extending the capabilities of AI-driven NDT in aerospace applications.",
+    "authors": "Not Available",
+    "link": "https://link.springer.com/chapter/10.1007/978-3-032-01486-3_39",
+    "citations": "Not Available",
+    "status": "Not Available",
+    "pub_date": "2026-01-01"
+  }
+]
