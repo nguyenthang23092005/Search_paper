@@ -189,7 +189,7 @@ class ScholarFinder:
                         citation_element = result.find_element(By.XPATH, ".//a[contains(text(), 'Cited by')]")
                         citations = citation_element.text.replace("Cited by ", "")
                     except:
-                        citations = "Not Available"
+                        citations = 0
 
                     # Mở link để lấy abstract
                     full_details = self.get_paper_details_from_link(link, idx)

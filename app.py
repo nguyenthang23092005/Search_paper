@@ -2,7 +2,7 @@ import streamlit as st
 from springer_search import run_springer_search
 from mdpi_search import run_mdpi_search
 from scholar_search import run_scholar_search
-from search_api import search_openalex, search_semantic_scholar, search_arxiv, search_crossref
+from search_api import search_openalex, search_semantic_scholar, search_arxiv, search_crossref,enrich_with_firecrawl, summarize_filtered_papers, filter_irrelevant_papers
 import pandas as pd
 from datetime import datetime
 
@@ -68,40 +68,54 @@ with tab1:
     st.subheader("🔹 Tìm kiếm trên All APIs + Google Scholar")
 
     # Nhập từ khóa và số lượng bài một lần
-    keyword_tab2 = st.text_input("Nhập từ khóa tìm kiếm (All APIs + Scholar):", key="keyword_tab2")
-    max_results_tab2 = st.number_input("Số lượng bài muốn lấy mỗi nguồn", min_value=1, max_value=20, value=5, key="max_results_tab2")
+    keyword_tab1 = st.text_input("Nhập từ khóa tìm kiếm (All APIs + Scholar):", key="keyword_tab1")
+    max_results_tab1 = st.number_input("Số lượng bài muốn lấy mỗi nguồn", min_value=1, max_value=20, value=10, key="max_results_tab1")
 
     if st.button("🔍 Tìm kiếm All APIs + Scholar"):
-        if not keyword_tab2.strip():
+        if not keyword_tab1.strip():
             st.warning("⚠️ Vui lòng nhập từ khóa tìm kiếm!")
         else:
             with st.spinner("Đang tìm kiếm trên tất cả các API..."):
                 # Gọi API
-                openalex_res = search_openalex(query=keyword_tab2, rows=max_results_tab2)
-                semantic_res = search_semantic_scholar(query=keyword_tab2, rows=max_results_tab2)
-                print(semantic_res)
-                arxiv_res = search_arxiv(query=keyword_tab2, rows=max_results_tab2)
-                crossref_res = search_crossref(query=keyword_tab2, rows=max_results_tab2)
+                openalex_res = search_openalex(query=keyword_tab1, rows=max_results_tab1)
+                # semantic_res = search_semantic_scholar(query=keyword_tab2, rows=max_results_tab2)
+                arxiv_res = search_arxiv(query=keyword_tab1, rows=max_results_tab1)
+                crossref_res = search_crossref(query=keyword_tab1, rows=max_results_tab1)
 
                 # Google Scholar
-                scholar_data = run_scholar_search(keyword_tab2, max_results_tab2)
+                scholar_data = run_scholar_search(keyword_tab1, max_results_tab1)
 
-                # Hợp nhất tất cả
-                merged_file, merged_results = merge_and_save_results(
-                    [openalex_res, semantic_res, arxiv_res, crossref_res, scholar_data],
-                    f"allapi_scholar_{keyword_tab2.replace(' ', '_')}.json"
-                )
+                # Merge kết quả
+                merged_results = []
+                for res in [openalex_res, arxiv_res, crossref_res, scholar_data]:
+                    merged_results.extend(res)
 
-                st.success(f"✅ Đã lưu kết quả hợp nhất vào: {merged_file}")
-                df = pd.DataFrame(merged_results)
+                # Crawl bổ sung bằng Firecrawl
+                st.info("⏳ Đang crawl abstract bổ sung bằng Firecrawl...")
+                enriched_results = enrich_with_firecrawl(merged_results)
+                filter_results = filter_irrelevant_papers(enriched_results)
+                summarize_results = summarize_filtered_papers(filter_results)
+
+                # Lưu enriched
+                current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+                filename = f"{current_time}_allapi_scholar_{keyword_tab1.replace(' ', '_')}.json"
+                merged_file = os.path.join(RESULTS_DIR, filename)
+                with open(merged_file, "w", encoding="utf-8") as f:
+                    json.dump(summarize_results, f, indent=2, ensure_ascii=False)
+
+                # Hiển thị enriched trực tiếp
+                st.success(f"✅ Đã lưu kết quả enriched vào: {merged_file}")
+                df = pd.DataFrame(summarize_results)
                 st.dataframe(df)
 
                 st.download_button(
                     label="📥 Tải kết quả JSON",
-                    data=open(merged_file, "rb").read(),
+                    data=json.dumps(summarize_results, indent=2, ensure_ascii=False),
                     file_name=os.path.basename(merged_file),
                     mime="application/json"
                 )
+
+
 
 
 # ===================== TAB 2 =====================
@@ -124,16 +138,16 @@ with tab2:
             st.warning("⚠️ Vui lòng nhập API Key trước khi lưu")
 
     # Nhập từ khóa và số lượng bài một lần
-    keyword_tab1 = st.text_input("Nhập từ khóa tìm kiếm (Springer + MDPI):", key="keyword_tab1")
-    max_results_tab1 = st.number_input("Số lượng bài muốn lấy mỗi nguồn", min_value=1, max_value=20, value=5, key="max_results_tab1")
+    keyword_tab2 = st.text_input("Nhập từ khóa tìm kiếm (Springer + MDPI):", key="keyword_tab2")
+    max_results_tab2 = st.number_input("Số lượng bài muốn lấy mỗi nguồn", min_value=1, max_value=20, value=10, key="max_results_tab2")
 
     if st.button("🔍 Tìm kiếm Springer + MDPI"):
-        if not keyword_tab1.strip():
+        if not keyword_tab2.strip():
             st.warning("⚠️ Vui lòng nhập từ khóa tìm kiếm!")
         else:
             with st.spinner("Đang tìm kiếm trên Springer và MDPI..."):
-                springer_result = run_springer_search(keyword_tab1, max_results_tab1)
-                mdpi_result = run_mdpi_search(keyword_tab1, max_results_tab1)
+                springer_result = run_springer_search(keyword_tab2, max_results_tab2)
+                mdpi_result = run_mdpi_search(keyword_tab2, max_results_tab2)
 
                 springer_data = [] if "error" in springer_result else springer_result["data"]
                 mdpi_data = [] if "error" in mdpi_result else mdpi_result["data"]
@@ -144,13 +158,25 @@ with tab2:
                     st.error(f"MDPI: {mdpi_result['error']}")
 
                 # Hợp nhất kết quả
-                merged_file, merged_results = merge_and_save_results(
-                    [springer_data, mdpi_data],
-                    f"springer_mdpi_{keyword_tab1.replace(' ', '_')}.json"
-                )
+                merged_results = springer_data + mdpi_data
 
+                # enrich bằng Firecrawl
+                st.info("⏳ Đang crawl abstract bổ sung bằng Firecrawl...")
+                enriched_results = enrich_with_firecrawl(merged_results)
+                filter_results = filter_irrelevant_papers(enriched_results)
+                summarize_results = summarize_filtered_papers(filter_results)
+
+                # Lưu kết quả chỉ sau khi đã làm giàu xong
+                current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+                filename = f"{current_time}_springer_mdpi_{keyword_tab2.replace(' ', '_')}.json"
+                merged_file = os.path.join(RESULTS_DIR, filename)
+
+                # Lưu kết quả vào file
+                with open(merged_file, "w", encoding="utf-8") as f:
+                    json.dump(summarize_results, f, indent=2, ensure_ascii=False)
                 st.success(f"✅ Đã lưu kết quả hợp nhất vào: {merged_file}")
-                df = pd.DataFrame(merged_results)
+
+                df = pd.DataFrame(enriched_results)
                 st.dataframe(df)
 
                 st.download_button(
