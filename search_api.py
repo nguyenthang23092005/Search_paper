@@ -3,6 +3,24 @@ import json
 import os
 from datetime import datetime
 import xml.etree.ElementTree as ET
+from dotenv import load_dotenv
+import time
+from langchain_google_genai import ChatGoogleGenerativeAI
+import google.generativeai as genai
+
+load_dotenv()
+FIRECRAWL_API_KEY = os.getenv("FIRECRAWL_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+genai.configure(api_key=GEMINI_API_KEY)
+
+# Model cho bước lọc bài báo (nhanh, rẻ)
+gemini_filter = genai.GenerativeModel("gemini-1.5-flash")
+
+# Model cho bước tóm tắt abstract (chất lượng cao hơn)
+gemini_summary = genai.GenerativeModel("gemini-1.5-flash")
+
+
 
 RESULTS_DIR = "results"
 
@@ -158,7 +176,7 @@ def search_arxiv(query="Non-Destructive Testing", rows=5):
             "abstract": abstract,
             "authors": authors_str,
             "link": link,
-            "citations": "Not Available",
+            "citations": 0,
             "status": "Open Access",
             "pub_date": pub_date
         })
@@ -247,7 +265,185 @@ def merge_and_save(all_results, filename):
 
     print(f"Saved {len(final_results)} unique papers to {filepath}")
 
+def fetch_abstract_firecrawl(url):
+    """
+    Dùng Firecrawl Scrape API, trích xuất toàn bộ abstract (nhiều dòng).
+    """
+    if not FIRECRAWL_API_KEY:
+        raise ValueError("Thiếu FIRECRAWL_API_KEY, hãy set trong biến môi trường.")
 
+    api_url = "https://api.firecrawl.dev/v1/scrape"
+    headers = {"Authorization": f"Bearer {FIRECRAWL_API_KEY}"}
+    payload = {
+        "url": url,
+        "formats": ["markdown"],  
+    }
+
+    try:
+        resp = requests.post(api_url, json=payload, headers=headers, timeout=60)
+        resp.raise_for_status()
+        data = resp.json()
+    except requests.exceptions.RequestException as e:
+        print(f"[Firecrawl Error] {e}")
+        return "Not Available"
+
+    content = data.get("data", {}).get("markdown", "")
+    if not content:
+        return "Not Available"
+
+    lines = content.splitlines()
+    abstract_lines = []
+    capture = False
+
+    for line in lines:
+        low = line.lower().strip()
+        # Bắt đầu từ Abstract / Tóm tắt
+        if "abstract" in low or "tóm tắt" in low:
+            capture = True
+            continue
+        # Nếu gặp Keywords / Introduction thì dừng lại
+        if capture and ("keywords" in low or "introduction" in low or "references" in low):
+            break
+        if capture:
+            abstract_lines.append(line.strip())
+
+    abstract = " ".join(abstract_lines).strip()
+    return abstract if abstract else "Not Available"
+
+
+def enrich_with_firecrawl(results):
+    """
+    Nhận danh sách results (các bài báo đã crawl từ OpenAlex, Arxiv, etc.)
+    Nếu abstract = 'Not Available' thì dùng Firecrawl lấy abstract từ link.
+    """
+    for paper in results:
+        if (not paper.get("abstract") or paper["abstract"] == "Not Available") and paper.get("link") != "Not Available":
+            print(f"Fetching abstract with Firecrawl for: {paper['title']}")
+            paper["abstract"] = fetch_abstract_firecrawl(paper["link"])
+            time.sleep(2)
+    return results
+
+
+def check_relevance_with_genai(abstract, keywords, threshold=0.7):
+    """
+    Kiểm tra abstract có liên quan tới các từ khóa nghiên cứu (vd: NDT) hay không.
+    Trả về True/False.
+
+    Parameters:
+        abstract (str): Abstract của bài báo.
+        keywords (list): Danh sách từ khóa liên quan đến chủ đề nghiên cứu.
+        threshold (float): Ngưỡng độ tin cậy (chưa dùng trực tiếp, prompt tự quyết định).
+
+    Returns:
+        bool: True nếu bài báo liên quan, False nếu không.
+    """
+    prompt = f"""
+    You are an expert in scientific paper classification.
+
+    Task: Determine whether the following abstract is related to the topic: {", ".join(keywords)}.
+    Answer only with "YES" or "NO".
+
+    Abstract:
+    {abstract}
+    """
+
+    try:
+        response = gemini_filter.generate_content(prompt)
+        answer = response.text.strip().upper()
+        return "YES" in answer
+    except Exception as e:
+        print(f"[Gemini Error - Relevance Check] {e}")
+        return False
+
+
+# =========================================
+# Hàm lọc bài báo không có abstract hoặc không liên quan
+# =========================================
+def filter_irrelevant_papers(results, threshold=0.7, keywords=["ndt"]):
+    """
+    Lọc các bài báo không có abstract hoặc không liên quan đến nghiên cứu.
+
+    Parameters:
+        results (list): Danh sách bài báo, mỗi bài báo là dict với 'abstract' và 'title'.
+        threshold (float): Ngưỡng liên quan tối thiểu (để mở rộng, prompt tự quyết định).
+        keywords (list): Danh sách từ khóa liên quan đến chủ đề nghiên cứu.
+
+    Returns:
+        list: Danh sách bài báo đã lọc.
+    """
+    filtered_papers = []
+
+    for paper in results:
+        title = paper.get("title", "Untitled")
+        abstract = paper.get("abstract", "").strip()
+
+        # Bỏ qua nếu không có abstract
+        if not abstract or abstract.lower() == "not available":
+            continue
+
+        print(f"Checking relevance for: {title}")
+        is_relevant = check_relevance_with_genai(abstract, keywords, threshold)
+
+        if is_relevant:
+            filtered_papers.append(paper)
+        else:
+            print(f"❌ Paper '{title}' is not relevant.")
+        time.sleep(16)  
+    return filtered_papers
+
+
+# =========================================
+# Hàm tóm tắt abstract
+# =========================================
+def summarize_with_genai(abstract):
+    """
+    Dùng Gemini API để tóm tắt abstract thành 3-4 câu.
+
+    Parameters:
+        abstract (str): Abstract của bài báo.
+
+    Returns:
+        str: Tóm tắt abstract.
+    """
+    prompt = f"""
+    Summarize the following abstract in 3-4 concise sentences.
+    Use simple and clear academic English.
+
+    Abstract:
+    {abstract}
+    """
+
+    try:
+        response = gemini_summary.generate_content(prompt)
+        return response.text.strip()
+    except Exception as e:
+        print(f"[Gemini Error - Summarization] {e}")
+        return "Tóm tắt không thành công"
+
+
+# =========================================
+# Hàm tóm tắt toàn bộ danh sách bài đã lọc
+# =========================================
+def summarize_filtered_papers(filtered_papers):
+    """
+    Tóm tắt abstract của tất cả các bài báo đã lọc.
+
+    Parameters:
+        filtered_papers (list): Danh sách bài báo đã lọc, mỗi bài chứa 'abstract' và 'title'.
+
+    Returns:
+        list: Danh sách bài báo với key 'summary' chứa tóm tắt abstract.
+    """
+    for paper in filtered_papers:
+        abstract = paper.get("abstract", "").strip()
+        title = paper.get("title", "Untitled")
+        
+        if abstract:
+            print(f"Summarizing abstract for: {title}")
+            paper["summary"] = summarize_with_genai(abstract)
+            time.sleep(16)  
+
+    return filtered_papers
 # ========================
 # TEST FUNCTION
 # ========================

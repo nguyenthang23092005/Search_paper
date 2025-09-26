@@ -1,0 +1,402 @@
+[
+  {
+    "source": "OpenAlex",
+    "title": "Accurate Thickness Characterization of Glass Fiber-Reinforced Composites Using Terahertz Dispersion Compensation Method Based on Sparse Representation",
+    "abstract": "Terahertz (THz) technology, a new nondestructive testing (NDT) approach with frequencies generally ranging from 100 GHz to 10 THz, has been widely used by virtue of its excellent penetration and high spatial–temporal resolution for non-metallic materials. However, in the process of characterizing the thickness of glass fiber-reinforced composite (GFRP) laminate along the THz propagation direction, the dispersion effect of the material will severely affect the accuracy of thickness measurement. In this work, in order to reduce the influence of the dispersion effect and improve thickness estimation accuracy, a THz dispersion compensation method based on sparse representation is proposed to accurately estimate the sparse impulse vector from the dispersive THz signal, with thickness measurement accomplished by the dispersion compensation process. Finally, a series of numerical simulations and experiments were implemented to verify the effectiveness of the proposed THz dispersion compensation method in thickness measurement. It is worth noting that the minimum estimated error in thickness is only 0.11%.",
+    "authors": "Yafei Xu, Peihan Li, Xiyuan Peng, Hua Zhang",
+    "link": "https://doi.org/10.3390/jcs9090511",
+    "citations": 0,
+    "status": "Not Available",
+    "pub_date": "2025-09-22"
+  },
+  {
+    "source": "OpenAlex",
+    "title": "Organic Electrolyte Composed of Strongly and Weakly Coordinating Molecules for Sodium‐Ion Battery. A Molecular Dynamics Simulation Study",
+    "abstract": "Molecular dynamics simulations were conducted at temperatures of 298.15, 273.15, 253.15, and 233.15 K on three organic electrolytes, composed of 1 m NaPF 6 dissolved in strongly coordinating diglyme (DG), a mixture of DG and weakly coordinating Tetrahydrofuran (THF) with a 2:8 volume ratio, and a mixture of DG, THF, and weakly coordinating 1,3‐dioxolane (DOL) with a 2:4:4 volume ratio, respectively, hereafter denoted as ND, NDT, and NDTD electrolytes for sodium‐ion batteries. The studies indicate strong Na + –DG coordination that leads to a vehicular mechanism, in the sense that Na + persists in migrating together with strongly coordinating DG in the first coordination shell at all the temperature ranges. Such a vehicular mechanism hinders Na + migration in the ND electrolyte. In contrast, the introduction of weakly coordinating molecules, such as THF in the NDT electrolyte and THF/DOL in the NDTD electrolyte, considerably perturbs Na + solvation with various coordinating configurations that include Na + –THF and/or Na + –DOL as well as Na + – contact‐ion pairs. Such diversity of the coordinating configurations significantly improves Na + migration, especially in the NDTD electrolyte, which has the highest ionic conductivity as well as the fractional ionic conductivity of Na + of 3.68 ± 0.36 and 1.32 ± 0.11 mS·cm −1 , respectively, even at a low temperature of 233.15 K.",
+    "authors": "Hongjin Li, Jun‐Yu Huang, Yuechao Wu, Tuo Wang, Siyuan Wu, Shu Li, Tianying Yan",
+    "link": "https://doi.org/10.1002/eem2.70147",
+    "citations": 0,
+    "status": "Not Available",
+    "pub_date": "2025-09-21"
+  },
+  {
+    "source": "OpenAlex",
+    "title": "Efektivitas Praktikum Liquid Penetrant Test dalam Meningkatkan Kompetensi Taruna Akademi Maritim Nusantara Cilacap",
+    "abstract": "Pendidikan vokasi maritim membutuhkan pembelajaran berbasis praktik untuk memastikan lulusan memiliki kompetensi teknis sesuai tuntutan industri. Salah satu kompetensi penting adalah kemampuan melakukan inspeksi komponen menggunakan metode Non-Destructive Testing (NDT), di mana Liquid Penetrant Test (LPT) banyak digunakan karena sederhana, efektif, dan efisien dalam mendeteksi keretakan halus pada logam maupun non-logam. Namun, kajian empiris mengenai efektivitas pelaksanaan praktikum LPT dalam meningkatkan kompetensi taruna masih terbatas. Penelitian ini bertujuan mengevaluasi efektivitas praktikum LPT terhadap peningkatan pemahaman, persepsi, dan kepuasan taruna Akademi Maritim Nusantara Cilacap. Penelitian menggunakan metode kuantitatif deskriptif dengan instrumen kuesioner berisi 15 butir pertanyaan mencakup tiga aspek: efektivitas, proses pembelajaran, dan kepuasan. Seluruh taruna tingkat I yang berjumlah 53 orang dijadikan responden (total sampling). Data dianalisis menggunakan skala Likert 1–5 dengan teknik statistik deskriptif. Hasil penelitian menunjukkan skor rata-rata efektivitas 3,92, persepsi 3,96, dan kepuasan 3,95, yang semuanya berada pada kategori tinggi. Sebanyak 76,73% dari 795 total jawaban berada pada skor 4 dan 5, menandakan dominasi penilaian positif. Temuan ini mengindikasikan bahwa praktikum LPT efektif dalam meningkatkan kompetensi teknis taruna dan diterima baik oleh peserta. Oleh karena itu, model pembelajaran berbasis praktik seperti LPT disarankan untuk terus dipertahankan dan dikembangkan sebagai bagian integral dari kurikulum pendidikan vokasi maritim yang relevan dengan kebutuhan industri.",
+    "authors": "Immawan Insani",
+    "link": "https://doi.org/10.52475/saintara.v9i2.423",
+    "citations": 0,
+    "status": "Not Available",
+    "pub_date": "2025-09-20"
+  },
+  {
+    "source": "OpenAlex",
+    "title": "Clinical Trials of a Stroke Rehabilitation Trainer Employing a Speed-Adapted Treadmill",
+    "abstract": "We propose a speed-adapted treadmill that can be incorporated into a rehabilitation trainer that applies neurodevelopmental treatment (NDT) for patients with stroke. NDT practice is effective for post-stroke patients, but its requirement for therapists’ participation can limit the patients’ rehabilitation during the golden period of recovery. Previous studies have proposed a trainer that can automatically reiterate therapists’ interventions. However, that trainer employed a constant-speed treadmill, which required the users to frequently adjust their walking speeds during rehabilitation. This paper develops a speed-adapted treadmill that can regulate the treadmill motor to maintain the subject’s position during the training process. First, we derive models of the treadmill and cable motors through experiments. Then, we design robust controls for the two systems and simplify them as proportional-integral-derivative controllers for hardware implementation. Finally, we integrate the system and invite healthy and stroke subjects to participate in clinical experiments. Among ten stroke subjects, all subjects’ walking speeds and nine subjects’ stride lengths were improved, while eight subjects showed improvement in the swing-phase asymmetry and pelvic rotation after receiving the NDT rehabilitation employing the speed-adapted treadmill. Our findings indicate that the NDT trainer effectively enhances users’ gait characteristics, including swing-phase symmetry, pelvic rotation, walking speed, and stride length.",
+    "authors": "Fu‐Cheng Wang, Szu-Fu Chen, Pen-Ning Yu, Yuyong Tan, Hao-Tien Cheng, Chia-Wei Chang, Lin-Yen Cheng, Yu-Huang Chien, Lik-Kang Koo",
+    "link": "https://doi.org/10.3390/s25185834",
+    "citations": 0,
+    "status": "Not Available",
+    "pub_date": "2025-09-18"
+  },
+  {
+    "source": "OpenAlex",
+    "title": "A Masi-Entropy Image Thresholding Based on Long-Range Correlation",
+    "abstract": "Image thresholding based on entropic concepts is one of the most used segmentation techniques in image processing. The Tsallis and Masi entropies are information measures that can capture long-range interactions in various physical systems, while Shannon entropy is more appropriate for short-range correlations. In this paper, we have improved a thresholding technique based on Tsallis and Shannon formulas by using Masi entropy. Specifically, we replace the Tsallis information measure with Masi's one, obtaining better results than the original methodology. We also compared our results with thresholding methods that use just Masi (or Tsallis) entropy. Quantitative measures of segmentation accuracy demonstrated the superior performance of our method in infrared images and nondestructive testing (NDT) images.",
+    "authors": "Perfilino E. Ferreira Júnior, Vinícius M. Mello, Gilson A. Giraldi",
+    "link": "https://doi.org/10.20944/preprints202509.1565.v1",
+    "citations": 0,
+    "status": "Not Available",
+    "pub_date": "2025-09-18"
+  },
+  {
+    "source": "OpenAlex",
+    "title": "Comprehensive Condition Assessment of Dam Crest Structures Using Multi-Method Non-Destructive Evaluation Techniques",
+    "abstract": "This paper presents a comparative analysis of a multi-modal non-destructive testing and evaluation program in evaluating the condition of concrete elements in two dam structures in Quebec, Canada. For each dam structure, one area, exhibiting varying degrees of deterioration, were meticulously investigated to evaluate the surface and subsurface integrity of the concrete. Visual surveys revealed surface-level defects, including cracks, spalling, and evidence of previous repairs. Subsurface conditions were evaluated through a multi modal non-destructive evaluation program. Ground-Penetrating Radar (GPR) was used for rapid screening of the area for potential delamination and voids, particularly in areas with prior repairs. Ultrasonic pulse echo (UPE) was utilized to verify the findings of the GPR scans, providing high-resolution data on internal defects within the top 500 mm. In addition, Impulse-Response (IR) testing was deployed to affirm presence of potential anomalies (voids and delamination) by identifying high-mobility zones. Spectral Analysis of Surface Waves (SASW) was employed to evaluate mechanical properties, revealing variations in shear wave velocity, with lower velocities correlating to compromised material integrity. The main objective of the study was to study the effectiveness of these NDT-E methods in identifying sub-surface anomalies. The findings of this study revealed a good agreement between among between different assessment methods, enhancing confidence in defect detection and material characterization. While much of the concrete was found to be in satisfactory condition, several areas especially those with prior repairs exhibited notable surface and subsurface degradation. The findings emphasize the need for targeted maintenance and repair strategies to mitigate the identified defects and ensure the long-term safety and performance of the dams. This study showed the efficacy of combining multiple NDE techniques for detailed, non-invasive assessments of dam infrastructure.",
+    "authors": "Hamed Layssi, Farid Moradi Marani, K. Daneshvar, Mohammadhossein Afsharipour, Richard Malantic",
+    "link": "https://doi.org/10.58286/31659",
+    "citations": 0,
+    "status": "Not Available",
+    "pub_date": "2025-09-18"
+  },
+  {
+    "source": "OpenAlex",
+    "title": "Development and Validation of a NDT-Based Reuse Assessment Guideline for Structural Concrete Elements",
+    "abstract": "Reusing structural concrete elements can reduce the environmental impact of construction. However, the absence of standardized documentation procedures remains a major barrier to implementation. This study introduces and validates a non-destructive testing (NDT)-based methodology for assessing structural elements intended for reuse. The procedure combines multiple NDT methods to evaluate subsurface conditions, reinforcement layout, and compressive strength of concrete. It was applied in nine case studies involving residential, institutional, and industrial buildings. The results show that the procedure is efficient in reliable reusability documentation of structural concrete elements within donor buildings. The methodology forms the basis for an informative standard (DS/INF 671) that supports circular construction by enabling safe and scalable reuse of structural concrete elements.",
+    "authors": "Serkan Karatosun, Katja I. M. Thygesen, Kari Gustafsson, Alexandra Golabek Christiansen, Lisbeth M. Ottosen",
+    "link": "https://doi.org/10.58286/31670",
+    "citations": 0,
+    "status": "Not Available",
+    "pub_date": "2025-09-18"
+  },
+  {
+    "source": "OpenAlex",
+    "title": "Signal Response-Based POD for Reliability of Damage Detection in Reinforced Concrete Structures",
+    "abstract": "Structural concrete damage evolution can be made by non-destructive testing (NDT) methods. These methods are divided into two subcategories as active and passive methods due to their applications. While defect characteristics are analyzed by measuring the changes in the material caused by externally provided energy in the active methods, passive methods use the energy emitted from the internal processes of the material without using any external source. Even though the test conditions of the passive NDT methods can be controlled, the randomness of the obtained data affects the probability of detection (POD) of the damage inspection. Particularly in concrete, an excessively heterogeneous material, sensor-damage distance and damage characteristics influence the reliability of the inspection procedure. This study aims to investigate the reliability of the passive NDT method for monitoring damage in concrete by focusing on effects of the sensor placement and damage severity. For this, with Acoustic Emission (AE) technique, detection reliability was comprehended on structural bending test of a reinforced concrete beam by signal response-based POD. As the AE parameters such as amplitude and energy are related with the damage severity, both of them were utilized to generate the POD curves with respect to the beam’s deflection. Furthermore, compared to prior studies on concrete damage inspection, Berens model and confidence interval analysis were applied by providing quantitative framework to prove the robustness and sensitivity of the method for detecting even low-load level damage.",
+    "authors": "Mohamed Talla Cissé, Sena Tayfur, Ninel Alver",
+    "link": "https://doi.org/10.58286/31660",
+    "citations": 0,
+    "status": "Not Available",
+    "pub_date": "2025-09-18"
+  },
+  {
+    "source": "OpenAlex",
+    "title": "Beyond Corrosion: Autonomous Real-Time Detection of Structural Cracks and Degradation Using Robotic Sensing and Digital Twins",
+    "abstract": "Structural crack detection and environmental hazard monitoring are essential in non-destructive testing (NDT) for civil infrastructure. This paper presents a real-time, AI-powered multi-sensor dashboard that receives data from a mobile climbing robot. The system integrates optical, thermal infrared (IR), and gas sensing, each supported by dedicated deep learning models. AI inference is performed server-side to classify surface cracks, segment IR-based crack regions, and detect gas anomalies. Models include MobileNetV2 for crack classification, U-Net for IR segmentation, and a gas classifier using MQ-135 data. The dashboard fuses predictions with visual overlays and quantitative measurements, enabling faster, safer, and more robust infrastructure inspection.",
+    "authors": "Ghezal Ahmad Zia, Cemal Hekim, Sabine Kruschwitz",
+    "link": "https://doi.org/10.58286/31663",
+    "citations": 0,
+    "status": "Not Available",
+    "pub_date": "2025-09-18"
+  },
+  {
+    "source": "OpenAlex",
+    "title": "Use of Non-Destructive Testing Methods for Structural Health Monitoring of Railway Tracks: An Analytical Approach and a Practical Insight",
+    "abstract": "Railway engineering is an interdisciplinary field of civil engineering that involves the design, construction, monitoring and maintenance of specific sets of structural, mechanical, hydraulic, electric and electronic elements that compose the railway track operations. Increased tonnage on contemporary railway tracks, require greater track availability for higher frequency train operations and reduced track closure for track maintenance and repair. As such, train network managers seek ways to employ proactive track maintenance policies, which require timely availability of crucial track data concerning track mechanics, track geometry, track right-of-way, track hydrology and track vegetation as well as track signalization and track electrification. This paper presents an integrated approach combining rough ride alerts, ground penetrating radar and seismic methods to assess the structural health of railway tracks. It details the electromagnetic and mechanical principles underlying these NDT techniques and explores how dielectric and seismic properties of trackbed materials influence their effectiveness. Through analytical insights and field examples, the study demonstrates how the fusion of GPR and seismic data can identify subsurface issues such as ballast fouling, water ingress, and subgrade weakness before they manifest as geometry faults. Case studies highlight the potential of NDT-informed maintenance workflows to diagnose root causes, reduce risk of derailment, and enhance long-term track performance.",
+    "authors": "Niyazi Özgür Bezgin, Asger Eriksen",
+    "link": "https://doi.org/10.58286/31657",
+    "citations": 0,
+    "status": "Not Available",
+    "pub_date": "2025-09-18"
+  },
+  {
+    "source": "arXiv",
+    "title": "On Transferring, Merging, and Splitting Task-Oriented Network Digital\n  Twins",
+    "abstract": "The integration of digital twinning technologies is driving next-generation\nnetworks toward new capabilities, allowing operators to thoroughly understand\nnetwork conditions, efficiently analyze valuable radio data, and innovate\napplications through user-friendly, immersive interfaces. Building on this\nfoundation, network digital twins (NDTs) accurately depict the operational\nprocesses and attributes of network infrastructures, facilitating predictive\nmanagement through real-time analysis and measurement. However, constructing\nprecise NDTs poses challenges, such as integrating diverse data sources,\nmapping necessary attributes from physical networks, and maintaining\nscalability for various downstream tasks. Unlike previous works that focused on\nthe creation and mapping of NDTs from scratch, we explore intra- and\ninter-operations among NDTs within a Unified Twin Transformation (UTT)\nframework, which uncovers a new computing paradigm for efficient transfer,\nmerging, and splitting of NDTs to create task-oriented twins. By leveraging\njoint multi-modal and distributed mapping mechanisms, UTT optimizes resource\nutilization and reduces the cost of creating NDTs, while ensuring twin model\nconsistency. A theoretical analysis of the distributed mapping problem is\nconducted to establish convergence bounds for this multi-modal gated\naggregation process. Evaluations on real-world twin-assisted applications, such\nas trajectory reconstruction, human localization, and sensory data generation,\ndemonstrate the feasibility and effectiveness of interoperability among NDTs\nfor corresponding task development.",
+    "authors": "Zifan Zhang, Minghong Fang, Mingzhe Chen, Yuchen Liu",
+    "link": "http://arxiv.org/abs/2509.02551v1",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025-09-02"
+  },
+  {
+    "source": "arXiv",
+    "title": "Masked Autoencoders for Ultrasound Signals: Robust Representation\n  Learning for Downstream Applications",
+    "abstract": "We investigated the adaptation and performance of Masked Autoencoders (MAEs)\nwith Vision Transformer (ViT) architectures for self-supervised representation\nlearning on one-dimensional (1D) ultrasound signals. Although MAEs have\ndemonstrated significant success in computer vision and other domains, their\nuse for 1D signal analysis, especially for raw ultrasound data, remains largely\nunexplored. Ultrasound signals are vital in industrial applications such as\nnon-destructive testing (NDT) and structural health monitoring (SHM), where\nlabeled data are often scarce and signal processing is highly task-specific. We\npropose an approach that leverages MAE to pre-train on unlabeled synthetic\nultrasound signals, enabling the model to learn robust representations that\nenhance performance in downstream tasks, such as time-of-flight (ToF)\nclassification. This study systematically investigated the impact of model\nsize, patch size, and masking ratio on pre-training efficiency and downstream\naccuracy. Our results show that pre-trained models significantly outperform\nmodels trained from scratch and strong convolutional neural network (CNN)\nbaselines optimized for the downstream task. Additionally, pre-training on\nsynthetic data demonstrates superior transferability to real-world measured\nsignals compared with training solely on limited real datasets. This study\nunderscores the potential of MAEs for advancing ultrasound signal analysis\nthrough scalable, self-supervised learning.",
+    "authors": "Immanuel Roßteutscher, Klaus S. Drese, Thorsten Uphues",
+    "link": "http://arxiv.org/abs/2508.20622v1",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025-08-28"
+  },
+  {
+    "source": "arXiv",
+    "title": "Magneto-conductivity and CME in Dirac semimetals from Keldysh technique\n  in Landau levels basis",
+    "abstract": "Negative magnetoresistance in Dirac semimetals is conventionally considered\nas a manifestation of chiral magnetic effect (CME), by means of a postulated\nChiral Kinetic equation. In this paper we study magnetoconductivity in large\nFermi energy Dirac semimetals, in one of which (ZrTe$_5$) the effect was\nobserved for the first time. Starting with a Hamiltonian for a semi-realistic\nmodel of such a Dirac semimetal, we apply the Non-equilibrium Diagram Technique\n(NDT, or the Keldysh technique) to derive the kinetic equations, to investigate\nthe electrons relaxation due to interaction with phonons and disorder, and,\nfinally, to calculate the DC magnetoconductivity (the longitudinal to magnetic\nfield component of conductivity) as a function of magnetic field strength and\ntemperature. Finally, we compare the obtained temperature dependencies with\navailable to us experimental data.",
+    "authors": "Ruslan A. Abramchuk",
+    "link": "http://arxiv.org/abs/2508.16266v1",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025-08-22"
+  },
+  {
+    "source": "arXiv",
+    "title": "PCA-Guided Autoencoding for Structured Dimensionality Reduction in\n  Active Infrared Thermography",
+    "abstract": "Active Infrared thermography (AIRT) is a widely adopted non-destructive\ntesting (NDT) technique for detecting subsurface anomalies in industrial\ncomponents. Due to the high dimensionality of AIRT data, current approaches\nemploy non-linear autoencoders (AEs) for dimensionality reduction. However, the\nlatent space learned by AIRT AEs lacks structure, limiting their effectiveness\nin downstream defect characterization tasks. To address this limitation, this\npaper proposes a principal component analysis guided (PCA-guided) autoencoding\nframework for structured dimensionality reduction to capture intricate,\nnon-linear features in thermographic signals while enforcing a structured\nlatent space. A novel loss function, PCA distillation loss, is introduced to\nguide AIRT AEs to align the latent representation with structured PCA\ncomponents while capturing the intricate, non-linear patterns in thermographic\nsignals. To evaluate the utility of the learned, structured latent space, we\npropose a neural network-based evaluation metric that assesses its suitability\nfor defect characterization. Experimental results show that the proposed\nPCA-guided AE outperforms state-of-the-art dimensionality reduction methods on\nPVC, CFRP, and PLA samples in terms of contrast, signal-to-noise ratio (SNR),\nand neural network-based metrics.",
+    "authors": "Mohammed Salah, Numan Saeed, Davor Svetinovic, Stefano Sfarra, Mohammed Omar, Yusra Abdulrahman",
+    "link": "http://arxiv.org/abs/2508.07773v1",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025-08-11"
+  },
+  {
+    "source": "arXiv",
+    "title": "On Effectiveness of Graph Neural Network Architectures for Network\n  Digital Twins (NDTs)",
+    "abstract": "Future networks, such as 6G, will need to support a vast and diverse range of\ninterconnected devices and applications, each with its own set of requirements.\nWhile traditional network management approaches will suffice, an automated\nsolutions are becoming a must. However, network automation frameworks are prone\nto errors, and often they employ ML-based techniques that require training to\nlearn how the network can be optimized. In this sense, network digital twins\nare a useful tool that allows for the simulation, testing, and training of AI\nmodels without affecting the real-world networks and users. This paper presents\nan AI-based Network Digital Twin (AI-NDT) that leverages a multi-layered\nknowledge graph architecture and graph neural networks to predict network\nmetrics that directly affect the quality of experience of users. An evaluation\nof the four most prominent Graph Neural Networks (GNN) architectures was\nconducted to assess their effectiveness in developing network digital twins. We\ntrained the digital twin on publicly available measurement data from RIPE\nAtlas, therefore obtaining results close to what is expected in real-world\napplications. The results show that among the four architectures evaluated,\nGraphTransformer presents the best performance. However, other architectures\nmight fit better in scenarios where shorter training time is important, while\nalso delivering acceptable results. The results of this work are indicative of\nwhat might become common practice for proactive network management, offering a\nscalable and accurate solution aligned with the requirements of the\nnext-generation networks.",
+    "authors": "Iulisloi Zacarias, Oussama Ben Taarit, Admela Jukan",
+    "link": "http://arxiv.org/abs/2508.02373v1",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025-08-04"
+  },
+  {
+    "source": "arXiv",
+    "title": "A Moment Matching-Based Method for Sparse and Noisy Point Cloud\n  Registration",
+    "abstract": "Point cloud registration is a key step in robotic perception tasks, such as\nSimultaneous Localization and Mapping (SLAM). It is especially challenging in\nconditions with sparse points and heavy noise. Traditional registration\nmethods, such as Iterative Closest Point (ICP) and Normal Distributions\nTransform (NDT), often have difficulties in achieving a robust and accurate\nalignment under these conditions. In this paper, we propose a registration\nframework based on moment matching. In particular, the point clouds are\nregarded as i.i.d. samples drawn from the same distribution observed in the\nsource and target frames. We then match the generalized Gaussian Radial Basis\nmoments calculated from the point clouds to estimate the rigid transformation\nbetween two frames. Moreover, such method does not require explicit\npoint-to-point correspondences among the point clouds. We further show the\nconsistency of the proposed method. Experiments on synthetic and real-world\ndatasets show that our approach achieves higher accuracy and robustness than\nexisting methods. In addition, we integrate our framework into a 4D Radar SLAM\nsystem. The proposed method significantly improves the localization performance\nand achieves results comparable to LiDAR-based systems. These findings\ndemonstrate the potential of moment matching technique for robust point cloud\nregistration in sparse and noisy scenarios.",
+    "authors": "Xingyi Li, Han Zhang, Ziliang Wang, Yukai Yang, Weidong Chen",
+    "link": "http://arxiv.org/abs/2508.02187v1",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025-08-04"
+  },
+  {
+    "source": "arXiv",
+    "title": "Advancing Welding Defect Detection in Maritime Operations via\n  Adapt-WeldNet and Defect Detection Interpretability Analysis",
+    "abstract": "Weld defect detection is crucial for ensuring the safety and reliability of\npiping systems in the oil and gas industry, especially in challenging marine\nand offshore environments. Traditional non-destructive testing (NDT) methods\noften fail to detect subtle or internal defects, leading to potential failures\nand costly downtime. Furthermore, existing neural network-based approaches for\ndefect classification frequently rely on arbitrarily selected pretrained\narchitectures and lack interpretability, raising safety concerns for\ndeployment. To address these challenges, this paper introduces\n``Adapt-WeldNet\", an adaptive framework for welding defect detection that\nsystematically evaluates various pre-trained architectures, transfer learning\nstrategies, and adaptive optimizers to identify the best-performing model and\nhyperparameters, optimizing defect detection and providing actionable insights.\nAdditionally, a novel Defect Detection Interpretability Analysis (DDIA)\nframework is proposed to enhance system transparency. DDIA employs Explainable\nAI (XAI) techniques, such as Grad-CAM and LIME, alongside domain-specific\nevaluations validated by certified ASNT NDE Level II professionals.\nIncorporating a Human-in-the-Loop (HITL) approach and aligning with the\nprinciples of Trustworthy AI, DDIA ensures the reliability, fairness, and\naccountability of the defect detection system, fostering confidence in\nautomated decisions through expert validation. By improving both performance\nand interpretability, this work enhances trust, safety, and reliability in\nwelding defect detection systems, supporting critical operations in offshore\nand marine environments.",
+    "authors": "Kamal Basha S, Athira Nambiar",
+    "link": "http://arxiv.org/abs/2508.00381v2",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025-08-01"
+  },
+  {
+    "source": "arXiv",
+    "title": "Towards a Robust Transport Network With Self-adaptive Network Digital\n  Twin",
+    "abstract": "The ability of the network digital twin (NDT) to remain aware of changes in\nits physical counterpart, known as the physical twin (PTwin), is a fundamental\ncondition to enable timely synchronization, also referred to as twinning. In\nthis way, considering a transport network, a key requirement is to handle\nunexpected traffic variability and dynamically adapt to maintain optimal\nperformance in the associated virtual model, known as the virtual twin (VTwin).\nIn this context, we propose a self-adaptive implementation of a novel NDT\narchitecture designed to provide accurate delay predictions, even under\nfluctuating traffic conditions. This architecture addresses an essential\nchallenge, underexplored in the literature: improving the resilience of\ndata-driven NDT platforms against traffic variability and improving\nsynchronization between the VTwin and its physical counterpart. Therefore, the\ncontributions of this article rely on NDT lifecycle by focusing on the\noperational phase, where telemetry modules are used to monitor incoming\ntraffic, and concept drift detection techniques guide retraining decisions\naimed at updating and redeploying the VTwin when necessary. We validate our\narchitecture with a network management use case, across various emulated\nnetwork topologies, and diverse traffic patterns to demonstrate its\neffectiveness in preserving acceptable performance and predicting per-flow\ndelay under unexpected traffic variation. The results in all tested topologies,\nusing the normalized mean square error as the evaluation metric, demonstrate\nthat our proposed architecture, after a traffic concept drift, achieves a\nperformance improvement in prediction of at least 56.7% compared to a\nconfiguration without NDT synchronization.",
+    "authors": "Cláudio Modesto, João Borges, Cleverson Nahum, Lucas Matni, Cristiano Bonato Both, Kleber Cardoso, Glauco Gonçalves, Ilan Correa, Silvia Lins, Andrey Silva, Aldebaro Klautau",
+    "link": "http://arxiv.org/abs/2507.20971v1",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025-07-28"
+  },
+  {
+    "source": "arXiv",
+    "title": "Water Heterostructure Photodetector for Calculation of Semiconductor\n  Minority Carrier Lifetime",
+    "abstract": "The minority carrier lifetime of semiconductor materials is a crucial\nperformance parameter for optoelectronic devices. However, the existing\nminority carrier lifetime measurement techniques necessitate delicate optical\nmeasurement systems and harmful treatment of the samples, which will definitely\ncause great constraints on the further development of the semiconductor\nindustry. Here, an off-junction graphene/water/silicon photodetector is\nrealized based on the charming dynamic polarization process of water molecules\nat the water/silicon and water/graphene interface, which shows a typical\nresponsivity and detectivity of 36.55 mA W-1 and 1.62*1012 Jones respectively\nunder 890 nm illumination with a distance of 0.2 cm away from the junction.\nThis pulse-like photo-response arises from the diffusion and drift current\ntoward the water/silicon interface generated by the illumination on an\noff-junction spot. Furthermore, by measuring the photo-current at a different\ndistance from the junction combined with an exponential fitting method, the\nminority carrier lifetime calculation of silicon can be performed with the\nmaximum accuracy rate reaches 98.8%, where water plays the key role of deducing\nthe carrier lifetime. This study provides a straightforward method that paves\nthe way for future minority carrier lifetime tests of semiconductor materials,\nwhich hold great potential for developing the nondestructive tests(NDT) in\nsemiconductor industry.",
+    "authors": "Can Wang, Renyu Yang, Huikai Zhong, Mingjia Zhi, Shisheng Lin",
+    "link": "http://arxiv.org/abs/2507.19857v1",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025-07-26"
+  },
+  {
+    "source": "arXiv",
+    "title": "InsightX Agent: An LMM-based Agentic Framework with Integrated Tools for\n  Reliable X-ray NDT Analysis",
+    "abstract": "Non-destructive testing (NDT), particularly X-ray inspection, is vital for\nindustrial quality assurance, yet existing deep-learning-based approaches often\nlack interactivity, interpretability, and the capacity for critical\nself-assessment, limiting their reliability and operator trust. To address\nthese shortcomings, this paper proposes InsightX Agent, a novel LMM-based\nagentic framework designed to deliver reliable, interpretable, and interactive\nX-ray NDT analysis. Unlike typical sequential pipelines, InsightX Agent\npositions a Large Multimodal Model (LMM) as a central orchestrator,\ncoordinating between the Sparse Deformable Multi-Scale Detector (SDMSD) and the\nEvidence-Grounded Reflection (EGR) tool. The SDMSD generates dense defect\nregion proposals for multi-scale feature maps and sparsifies them through\nNon-Maximum Suppression (NMS), optimizing detection of small, dense targets in\nX-ray images while maintaining computational efficiency. The EGR tool guides\nthe LMM agent through a chain-of-thought-inspired review process, incorporating\ncontext assessment, individual defect analysis, false positive elimination,\nconfidence recalibration and quality assurance to validate and refine the\nSDMSD's initial proposals. By strategically employing and intelligently using\ntools, InsightX Agent moves beyond passive data processing to active reasoning,\nenhancing diagnostic reliability and providing interpretations that integrate\ndiverse information sources. Experimental evaluations on the GDXray+ dataset\ndemonstrate that InsightX Agent not only achieves a high object detection\nF1-score of 96.35% but also offers significantly improved interpretability and\ntrustworthiness in its analyses, highlighting the transformative potential of\nagentic LLM frameworks for industrial inspection tasks.",
+    "authors": "Jiale Liu, Huan Wang, Yue Zhang, Xiaoyu Luo, Jiaxiang Hu, Zhiliang Liu, Min Xie",
+    "link": "http://arxiv.org/abs/2507.14899v2",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025-07-20"
+  },
+  {
+    "source": "Crossref",
+    "title": "A critical note on the sideband peak count-index technique: Failure for nonlinear damage characterization of impacted CFRP plates",
+    "abstract": "It is widely accepted, that nonlinear elastodynamic methods are superior to linear methods in detecting early stages of material deterioration. A number of recently developed methods based on counting spectral peaks are reported to be simple, robust but nevertheless very sensitive to nonlinearities and thus appropriate to indicate early damage. We applied systematically one of the methods, the sideband peak count index (SPC-I), to a series of increasingly damaged carbon fiber reinforced plastic (CFRP) plates. Our data leads to other conclusions. The SPC-I values are influenced by (usually undocumented) variations in the index calculation procedure, which is not acceptable for a robust method. Moreover, the behavior of the index when the ultrasound amplitude is varied excludes material nonlinearity as a direct and significant contributor to the index value. To clarify the apparent contradiction of our results with the previously published statements, it is recommended that (a) our data is re-evaluated by independent researchers and (b) the experiments already published are repeated or (if sufficient data is available) re-evaluated as well.  - Previousarticle in issue - Nextarticle in issue",
+    "authors": "Bernd Köhler, Frank Schubert",
+    "link": "https://doi.org/10.1016/j.ndteint.2025.103543",
+    "citations": 0,
+    "status": "Elsevier BV",
+    "pub_date": "2026-3"
+  },
+  {
+    "source": "Crossref",
+    "title": "Noise reduction for LDC resonant eddy current using multi-scale dual-parameter reinforced-learning fusion",
+    "abstract": "This paper presents a novel methodology for mitigating vibration-induced distortions in rail surface defect detection through eddy current testing. We developed a dual-parameter eddy current sensor utilizing the LDC1101 (inductive digital converter). The sensor exploits the fundamental relationship between parallel impedance (RP) and inductance (L) to establish a dual-parameter fusion model that effectively reduces vibration interference during detection. Sensor sensitivity is enhanced through Litz Wire implementation. Our numerical simulations compare the defect detection capabilities of Litz Wire versus single-core coils, while examining the Litz Wire’s response characteristics during dual-parameter detection. These analyses also elucidate the mechanisms underlying anomalous RP responses. Laboratory and field trials validate the methodology’s efficacy in suppressing vibration interference during eddy current detection, demonstrating the probe’s reliability for surface defect detection in rail production.  - Previousarticle in issue - Nextarticle in issue",
+    "authors": "Xiaolong Lu, Feilong Peng, Zongwen Wang, Maolin Luo, Qiuji Yi, Guiyun Tian",
+    "link": "https://doi.org/10.1016/j.ndteint.2025.103546",
+    "citations": 0,
+    "status": "Elsevier BV",
+    "pub_date": "2026-3"
+  },
+  {
+    "source": "Crossref",
+    "title": "Probabilistic detection assessment based on one-dimensional signal distribution in eddy current testing under low signal-to-noise ratio",
+    "abstract": "Not Available",
+    "authors": "Xiaojuan Xu, Fanwei Yu, Saijiro Yoshioka, Noritaka Yusa",
+    "link": "https://doi.org/10.1016/j.ndteint.2025.103557",
+    "citations": 0,
+    "status": "Elsevier BV",
+    "pub_date": "2026-3"
+  },
+  {
+    "source": "Crossref",
+    "title": "Quantitative evaluation of the reliability of hybrid corrosion inspection and monitoring approaches",
+    "abstract": "Conventional ultrasonic approaches for corrosion surveillance such as large-scale C-scans and continuous localised monitoring face inherent limitations in either temporal resolution or spatial coverage. Recent advances in sensor technology and low-cost autonomous robotics enables a hybrid approach that combine their strengths. However, critical questions remain about optimising such approaches, including determining the optimal inspection intervals, spatial coverage, and number of sensors. This study presents a multi-stage framework that addresses these challenges through integrated modelling: degradation simulation for spatiotemporal evolution of component surfaces, physics-based surrogate models for ultrasonic thickness measurements, data subsampling to replicate inspection and monitoring procedures, and reliability assessments against surveillance targets. Through Monte Carlo simulations on synthesised data calibrated to field measurements, we demonstrate the potential benefits of the hybrid strategy. Results show that strategic sensor placement and periodic repositioning can enhance reliability while reducing coverage requirements and extending inspection intervals. Importantly, this framework provides quantitative guidance for corrosion surveillance planning and can be adapted to different degradation phenomena across various asset types.  - Previousarticle in issue - Nextarticle in issue",
+    "authors": "Yifeng Zhang, Frederic Cegla",
+    "link": "https://doi.org/10.1016/j.ndteint.2025.103527",
+    "citations": 0,
+    "status": "Elsevier BV",
+    "pub_date": "2026-3"
+  },
+  {
+    "source": "Crossref",
+    "title": "A near-field 30–40 GHz millimeter-wave phase imaging method for non-destructive testing and evaluation",
+    "abstract": "Not Available",
+    "authors": "Yiming Ding, Xilai Xie, Dongjie Bi, Xifeng Li, Libiao Peng",
+    "link": "https://doi.org/10.1016/j.ndteint.2025.103529",
+    "citations": 0,
+    "status": "Elsevier BV",
+    "pub_date": "2026-3"
+  },
+  {
+    "source": "Crossref",
+    "title": "Stratigraphic reconstruction from terahertz and ultrasonic signals by deconvolution: A review",
+    "abstract": "Nondestructive evaluation techniques, such as terahertz and ultrasonic testing, use short pulses to probe layered materials and reconstruct their stratigraphy by analyzing time delays between echoes at internal interfaces. However, when layers are sufficiently thin, successive echoes temporally overlap, making direct identification of their number and timing challenging. In such cases, deconvolution techniques are employed to extract the impulse response or key features such as echo locations and amplitudes, improving resolution of the local stratigraphy. This review examines four widely used deconvolution algorithms for stratigraphic reconstruction under the assumption of a sparse impulse response, where layer boundaries are modeled as discrete, sharp echoes. Two time-domain methods—orthogonal matching pursuit and ℓ1-norm-based sparse deconvolution—and two frequency-domain approaches—multiple signal classification and autoregressive spectral extrapolation—are discussed. Their theoretical foundations, practical implementation, and comparative performance are evaluated using synthetic signals and experimental echograms from terahertz pulsed imaging and ultrasound sonography. These techniques enhance the ability to distinguish closely spaced interfaces and are applicable to defect detection in materials, tissue-layer analysis in medical diagnostics, and preprocessing for 3D imaging.  - Previousarticle in issue - Nextarticle in issue",
+    "authors": "Rocco Zito, Haolian Shi, Marco Ricci, Stefano Laureti, D.S. Citrin, Alexandre Locquet",
+    "link": "https://doi.org/10.1016/j.ndteint.2025.103524",
+    "citations": 0,
+    "status": "Elsevier BV",
+    "pub_date": "2026-3"
+  },
+  {
+    "source": "Crossref",
+    "title": "Adaptive ultrasonic technique for inspection of complex geometry components with a matrix array",
+    "abstract": "Ultrasonic phased-array technology is widely used in many NDT (Non-Destructive Testing) fields. Its ability to electronically steer and focus ultrasonic beams allows for comprehensive inspections with improved accuracy. However, the performances of an ultrasonic inspection may be degraded when the component being inspected exhibits an uneven surface. If the surface geometry is unknown, phased array technology is unable to correct the perturbations of acoustical beams using array settings. In this work, we present a new immersion adaptive inspection technique of large and complex-shaped components using a matrix array. In this approach, first, the unknown surface geometry of the inspected component is reconstructed from a series of 2D TFM images collected using only one row and one column of the matrix array acting as two independent orthogonal 1D arrays, in conjunction with mechanical 2D scanning. At this stage, the recorded 2D images are combined into a single wide-view 3D surface image by rotational SAFT algorithm, a simplified version of the standard SAFT method. The desired surface is extracted from the resulting image using an automatic global thresholding method. Then, based on the reconstructed surface and given the inspection probe trajectory, adapted focal laws to inspect the interior of the component are computed and applied at every location of the probe to correct the effect of the surface. The capabilities of the proposed inspection technique are illustrated by various simulated and experimental results carried out in a water tank. Its advantages and drawbacks will be discussed.  - Previousarticle in issue - Nextarticle in issue",
+    "authors": "Ekaterina Iakovleva, David Roué, Sylvain Chatillon",
+    "link": "https://doi.org/10.1016/j.ndteint.2025.103535",
+    "citations": 0,
+    "status": "Elsevier BV",
+    "pub_date": "2026-3"
+  },
+  {
+    "source": "Crossref",
+    "title": "Far-focused pixel-based imaging of defects in layered structures based on improved nonlinear beamforming",
+    "abstract": "Not Available",
+    "authors": "Shuang Liu, Huifeng Zheng, Cheng Hang, Baoming Peng, Guoyang Teng, Chenlong Yang",
+    "link": "https://doi.org/10.1016/j.ndteint.2025.103545",
+    "citations": 0,
+    "status": "Elsevier BV",
+    "pub_date": "2026-3"
+  },
+  {
+    "source": "Crossref",
+    "title": "Top ceramic coating thickness measurement of thermal barrier coating based on chirped-pulse eddy current testing",
+    "abstract": "Not Available",
+    "authors": "Gaochi Zhou, Mengbao Fan, Fengshan Sun, Jingyuan Li, Binghua Cao, Bo Ye",
+    "link": "https://doi.org/10.1016/j.ndteint.2025.103554",
+    "citations": 0,
+    "status": "Elsevier BV",
+    "pub_date": "2026-3"
+  },
+  {
+    "source": "Crossref",
+    "title": "Enhanced leak detection in tunnel cracks using thermal imaging: A case study on statistical cause analysis",
+    "abstract": "Not Available",
+    "authors": "Kang Wang, Lizhuang Cui, Jian Liu, Feng Guo",
+    "link": "https://doi.org/10.1016/j.ndteint.2025.103547",
+    "citations": 0,
+    "status": "Elsevier BV",
+    "pub_date": "2026-3"
+  },
+  {
+    "source": "Google Scholar",
+    "title": "8 Development of Mixed Reality Methods for Immersive Visualization of 3D Dynamic Optical Testing Measurements",
+    "abstract": "Chapter Abstract:\nAdvancement of Optical Methods & Digital Image Correlation in Experimental Mechanics, Volume 2 of the Proceedings of the 2025 SEM Annual Conference & Exposition on Experimental and Applied Mechanics, the second volume of five from the Conference, brings together contributions to this important area of research and engineering. The collection presents early findings and case studies on a wide range of optical methods ranging from traditional photoelasticity and interferometry, DIC and DVC techniques, and newer advances in photonics. Included are papers in the following general technical research areas: • DIC/DVC Applications and Challenges • DIC/DVC Methods • Photoelasticity and Fringe Analysis • Session to celebrate the retirement of Prof. Fu-Pen Chiang of Stonybrook University • Optical Methods in Industrial Applications • Interferometry and Photonic Methods in Experimental Mechanics • Advancement of Optical Methods\nPage(s): 47 - 52\nCopyright Year: 2025\nISBN Information:\nPublisher: River Publishers - SEM",
+    "authors": "CH Hwang, G Shaw, M Fujigaki - 2025 - ieeexplore.ieee.org",
+    "link": "https://ieeexplore.ieee.org/abstract/document/11169345/",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025"
+  },
+  {
+    "source": "Google Scholar",
+    "title": "9 Development of an Instantaneous Phase-shifting Lensless Digital Holographic Otoscope for Quantitative Imaging of the Human Eardrum in-vivo",
+    "abstract": "Chapter Abstract:\nAdvancement of Optical Methods & Digital Image Correlation in Experimental Mechanics, Volume 2 of the Proceedings of the 2025 SEM Annual Conference & Exposition on Experimental and Applied Mechanics, the second volume of five from the Conference, brings together contributions to this important area of research and engineering. The collection presents early findings and case studies on a wide range of optical methods ranging from traditional photoelasticity and interferometry, DIC and DVC techniques, and newer advances in photonics. Included are papers in the following general technical research areas: • DIC/DVC Applications and Challenges • DIC/DVC Methods • Photoelasticity and Fringe Analysis • Session to celebrate the retirement of Prof. Fu-Pen Chiang of Stonybrook University • Optical Methods in Industrial Applications • Interferometry and Photonic Methods in Experimental Mechanics • Advancement of Optical Methods\nPage(s): 53 - 59\nCopyright Year: 2025\nISBN Information:\nPublisher: River Publishers - SEM",
+    "authors": "CH Hwang, G Shaw, M Fujigaki - 2025 - ieeexplore.ieee.org",
+    "link": "https://ieeexplore.ieee.org/abstract/document/11169317/",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025"
+  },
+  {
+    "source": "Google Scholar",
+    "title": "AI-Driven Data Management Framework for Quality Assurance in Additive Manufacturing: A Case Study on the TRUMPF TruPrint 1000",
+    "abstract": "Our work demonstrates an innovative AI-driven approach to Quality Assurance (QA) in metal additive manufacturing (AM). We focus on real-time defect detection in 3D metal printing, which is increasingly used to manufacture small parts for applications in safety-critical devices, including parts for the aerospace, automotive, and medical industries. We propose a model-based failure and defect detection system that combines visual monitoring and input from various sensors to control the AM process. By using a deep learning model and incorporating live monitoring of data points, we enable early anomaly detection and thus ensure immediate operator intervention to stop and prevent defective prints to be used in safety-critical applications. These techniques help prevent energy waste, conserve material costs, resources, time, and increase the safety and reliability of the system. Our prototype framework automates the classification of multiple defects, improving both the reliability of printed components and the efficiency of the manufacturing process by suggesting in-situ improvement techniques. We also highlight the technical challenges associated with data synchronisation and acquisition, as well as multiple sensor integration. Data collection is used not only for QA but also as valuable documentation for process validation and to maintaining an in-house learning center. Overall, our AI-driven approach improves the accuracy of non-destructive testing (NDT) over traditional post-production inspection methods. We propose a framework for the integration of AI to improve process control, making it more reliable for safety-critical industries and providing strong guidance for future model-based QA applications in AM processes. This framework can be applied for QA on TRUMPF TruPrint L-PBF 3D printing machines.",
+    "authors": "F Waheed, K Höfig, F Riß - … Symposium on Model-Based Safety and …, 2025 - Springer",
+    "link": "https://link.springer.com/chapter/10.1007/978-3-032-05073-1_1",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025"
+  },
+  {
+    "source": "Google Scholar",
+    "title": "Calculation of relative velocity change of coherent waves using improved stretching technique",
+    "abstract": "Highlights\n•\nTheoretically investigate systematic error for coherent wave stretching.\n•\nProposes improved algorithm by stretching the reference signal.\n•\nSimulations enhance algorithms and offer practical guidelines for coherent waves.\n•\nValidated via thermal modulation ultrasonic experiments on Nylon.",
+    "authors": "S Zeng, J Tu, C Malone, J Zhu, X Li - Ultrasonics, 2025 - Elsevier",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0041624X25002616",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025"
+  },
+  {
+    "source": "Google Scholar",
+    "title": "Detection, quantification and prediction of interlaminar crack propagation in carbon-fiber reinforced polymers informed by high resolution ultrasonic testing.",
+    "abstract": "Carbon fiber-reinforced polymers (CFRPs) are widely used in aerospace, automotive, and industrial applications due to their advantageous properties such as, high strength-to-weight ratio and fatigue resistance. However, their susceptibility to delamination presents a significant challenge, particularly under fatigue and mixed-mode loading conditions. Mode II delamination is a critical failure mode in CFRPs due to flexural loading conditions (bending), which is more complex than Mode I opening conditions. Mode II delamination mechanisms comprise of fiber imprints, cusps, and striations, making them challenging to detect, quantify and predict. This is especially relevant in low-velocity impact-induced damage in CFRP specimens, where delamination initiation and propagation are primarily influenced by flexural bending stresses. Therefore, being able to detect and predict crack growth is of great importance to ensure continued safety and reliability of CFRP components. Nondestructive testing (NDT), such as Ultrasonic Testing (UT), allows for the detection of such damage without exacerbating any damage, providing insights into the structural integrity of the component and providing real-time monitoring of the condition of the material. This dissertation develops an automated ultrasonic testing method to detect and quantify delaminations with high spatial and depth resolution in CFRP components, via the utilization of the full waveform (A-scan) analysis informed by user-defined thresholds, with results comparable to industry standard (X-ray CT) results. The average measurement difference between the two methods for the delaminated regions is 1.09%. Additionally, an automated UT depth analysis successfully located delaminations within one lamina interface. To improve fatigue life assessment, this study incorporates the UT-informed data of the initial crack front, to analytical models via beam theory, to correct theoretical crack length measurements, improving the validation of Mode II fatigue and quasi-static predictions thus better understanding crack growth behavior in CFRPs under flexural shear loading conditions. Finally, the study concludes with investigating the effects of symmetric and asymmetric cracks on fracture and fatigue behaviors in unidirectional CFRPs using the Virtual Crack Closure Technique-based finite element modeling. This study elucidates how delamination depth, thickness and initial crack length influences the effect of Mode I, Mode II and mode-mixity on crack propagation and fracture behavior in CFRPs.",
+    "authors": "K Matalgah - 2025 - baylor-ir.tdl.org",
+    "link": "https://baylor-ir.tdl.org/items/8670fcdb-83a4-4d47-8605-6148980eb406",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025"
+  },
+  {
+    "source": "Google Scholar",
+    "title": "Development of nondestructive evaluation methodologies for polymer composite components prepared via additive manufacturing.",
+    "abstract": "Not Available",
+    "authors": "JC Wilkins - 2025 - baylor-ir.tdl.org",
+    "link": "https://baylor-ir.tdl.org/items/2eda7e30-39d9-43c5-a962-a9e727198596",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025"
+  },
+  {
+    "source": "Google Scholar",
+    "title": "Research progress of intelligent thermal spraying system for aeroengine blades",
+    "abstract": "Given the stringent accuracy requirements for spray gun calibration in thermal spraying applications, as well as practical and economic considerations, the typical point method [80] and direct measurement method [80] are commonly employed for spray gun calibration in applied contexts. The flowchart for the typical point method is shown in Fig. 13. In this approach, the industrial robot is maneuvered to adjust the position of the tool’s origin, bringing it into correspondence with a fixed reference point in the base coordinate system. The robot’s pose is recorded at the moment of this correspondence, and this process is repeated until the number of recorded poses exceeds the required minimum (usually no fewer than six points). Subsequently, mathematical algorithms, such as the least squares method, are utilized to optimize the transformation matrix between the tool’s coordinate system and the robot’s end effector. This transformation matrix is then configured in the robot control system to finalize the calibration. The direct measurement method relies on high-precision sensors to accurately measure the spatial position of the tool’s end. Common measurement instruments include laser trackers [80], coordinate measuring machines (CMMs) [80], and laser interferometers [80]. In this paper, Fig. 14 illustrates the calibration process utilizing a laser tracker. Initially, the laser measurement device is integrated with the robot control system, followed by the calibration of the measurement equipment to ensure precise tracking of the tool’s end position and orientation. The laser tracker then measures the tool’s end effector pose with high accuracy, gathering data from multiple measurement points. These results are input into the robot control system, which computes the position and orientation of the TCP. Finally, the robot control system completes the calibration process based on the computed results. To validate the calibration accuracy, the robot executes basic tasks, such as translation and rotation at multiple locations within the workspace, while the laser tracker continuously tracks the real-time positional changes of the tool’s end effector. This procedure ensures that the measured position of the tool’s end effector corresponds to the tool center point derived from the robot control system, thus confirming the precision and reliability of the calibration outcomes.",
+    "authors": "B Liu, Y Zhang, F Kuang, Q He - The International Journal of Advanced …, 2025 - Springer",
+    "link": "https://link.springer.com/article/10.1007/s00170-025-16485-9",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025"
+  },
+  {
+    "source": "Google Scholar",
+    "title": "Computer simulation of dissimilar metal corrosion of fasteners and its validation by non-destructive testing",
+    "abstract": "We thank Prof. Sunil G. Bhirud (Vice Chancellor, COEP Technological University, Pune) for encouragement and Dr. M. G. Kulthe (Head, Department of Metallurgy and Materials Engineering, COEP Technological University Pune) for providing the necessary facilities to carry out this study.",
+    "authors": "PP Deshpande, PA Kamble, ST Vagge… - Journal of Solid State …, 2025 - Springer",
+    "link": "https://link.springer.com/article/10.1007/s10008-025-06446-3",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025"
+  },
+  {
+    "source": "Google Scholar",
+    "title": "openjurnalsystem.amn.ac.id",
+    "abstract": "Not Available",
+    "authors": "I Insani - Saintara: Jurnal Ilmiah Ilmu-Ilmu Maritim, 2025 - openjurnalsystem.amn.ac.id",
+    "link": "https://openjurnalsystem.amn.ac.id/index.php/saintara/article/view/423",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "2025"
+  },
+  {
+    "source": "Google Scholar",
+    "title": "NDT Data Fusion for Post-Impact Damage Characterization in a Discontinuous Long Fiber Reinforced Polymer Composite with Stochastic Meso-Structure",
+    "abstract": "Download This Paper\nOpen PDF in Browser\nAdd Paper to My Library\nShare:\nNDT Data Fusion for Post-Impact Damage Characterization in a Discontinuous Long Fiber Reinforced Polymer Composite with Stochastic Meso-Structure\n43 Pages Posted: 20 Sep 2025\nMarco Didone\naffiliation not provided to SSRN\nRachel Van Lear\nBaylor University\nDavid Jack\nBaylor University\nS. G. Kravchenko\naffiliation not provided to SSRN\nAbstract\nThe characterization of impact damage in Prepreg Platelet Moulded Composites (PPMCs) is affected by their heterogeneous mesostructure, resulting from the compression moulding of randomly oriented unidirectional prepreg platelets. Local variations in fibre orientation distribution, resin-rich zones, and inter-platelet interfaces influence damage initiation and growth under low-velocity impact (LVI), often leading to barely visible impact damage with irregular projected areas and non-uniform through-thickness morphology. This study applies Non-Destructive Testing (NDT) Data Fusion via ultrasonic testing (UT), infrared thermography (IRT), and X-ray micro-computed tomography (CT) to post-impact PPMCs, using a pixel-level fusion framework to combine complementary information across modalities. Both feature integration and classification-based fusion (average, difference, maximum, and Hadamard product) are implemented to enhance damage contrast and improve projected area estimation. Morphological correlations are established by comparing CT reconstructions with micrographs and through layer-by-layer comparisons between UT C-scans and CT slices. Results show that multi-modal fusion reduces the limitations of single techniques, providing a more complete and reliable description of damage extent and morphology. These findings support the use of NDT data fusion for discontinuous long fibre composites and its inclusion in inspection protocols for aerospace and automotive applications.\nKeywords: Low-velocity impact, Long Discontinuous Fiber Composite, Damage, Non-Destructive Testing, Data Fusion\nSuggested Citation:\nDidone, Marco and Van Lear, Rachel and Jack, David and Kravchenko, S. G., NDT Data Fusion for Post-Impact Damage Characterization in a Discontinuous Long Fiber Reinforced Polymer Composite with Stochastic Meso-Structure. Available at SSRN: https://ssrn.com/abstract=5511700 or http://dx.doi.org/10.2139/ssrn.5511700\n\n\n\n\n\n\nDownload This Paper\nOpen PDF in Browser\n45 References\nX E Gros\nApplications of NDT Data Fusion Posted: 2013\nD L Hall , J Llinas\nAn Introduction to Multisensor Data Fusion\nD M Sparkman , J T Welter , M D Uchic\nDATA FUSION APPROACH FOR ULTRASONIC AND X-RAY COMPUTED TOMOGRAPHY\nZ Liu , K Hanasaki , T Kirubarajan\nSurvey: State of the Art in NDE Data Fusion Techniques\nIEEE TRANSACTIONS ON INSTRUMENTATION AND MEASUREMENT , volume 56 Posted: 2007\nLoad more\n0 Citations\nDo you have a job opening that you would like to promote on SSRN?\nPlace Job Opening\nPaper statistics\nDOWNLOADS\n7\nABSTRACT VIEWS\n23\n45 References\nPlumX Metrics\nRelated eJournals\nAerospace Engineering eJournal\nFollow\nMaterials Engineering eJournal\nFollow\nFeedback",
+    "authors": "M Didone, R Van Lear, D Jack… - Available at SSRN … - papers.ssrn.com",
+    "link": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5511700",
+    "citations": 0,
+    "status": "Open Access",
+    "pub_date": "Not Available"
+  }
+]
