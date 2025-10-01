@@ -1,28 +1,24 @@
 import requests
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import xml.etree.ElementTree as ET
 from dotenv import load_dotenv
 import time
 from langchain_google_genai import ChatGoogleGenerativeAI
 import google.generativeai as genai
-
+from google.genai import Client
+from google.genai.types import GenerateContentConfig
 load_dotenv()
 FIRECRAWL_API_KEY = os.getenv("FIRECRAWL_API_KEY")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
-genai.configure(api_key=GEMINI_API_KEY)
-
-# Model cho bước lọc bài báo (nhanh, rẻ)
-gemini_filter = genai.GenerativeModel("gemini-1.5-flash")
-
-# Model cho bước tóm tắt abstract (chất lượng cao hơn)
-gemini_summary = genai.GenerativeModel("gemini-1.5-flash")
+client = Client(api_key=GOOGLE_API_KEY)
 
 
 
 RESULTS_DIR = "results"
+
 
 # ========================
 # 1. OpenAlex API
@@ -33,26 +29,32 @@ def decode_openalex_abstract(inverted_index):
     words = sorted([(pos, word) for word, positions in inverted_index.items() for pos in positions])
     return " ".join(word for pos, word in words)
 
-def search_openalex(query="Non-Destructive Testing", rows=5):
+def search_openalex(query="Non-Destructive Testing", rows=100, date=None):
     url = "https://api.openalex.org/works"
     params = {
         "search": query,
         "per_page": rows,
         "sort": "publication_date:desc"
     }
+    if date:
+        params["filter"] = f"from_publication_date:{date},to_publication_date:{date}"
 
     try:
         response = requests.get(url, params=params, timeout=30)
         response.raise_for_status()
-    except requests.exceptions.RequestException as e:
+    except requests.exceptions.RequestException:
         return []
 
     data = response.json()
-    if "results" not in data or len(data["results"]) == 0:
+    if "results" not in data or not data["results"]:
         return []
 
     results = []
-    for idx, item in enumerate(data["results"], start=1):
+    for item in data["results"]:
+        pub_date = item.get("publication_date", "Not Available")
+        if date and pub_date != date:
+            continue
+
         title = item.get("title", "No title")
         abstract = decode_openalex_abstract(item.get("abstract_inverted_index"))
         if abstract and isinstance(abstract, str):
@@ -60,11 +62,9 @@ def search_openalex(query="Non-Destructive Testing", rows=5):
 
         authors = [a["author"]["display_name"] for a in item.get("authorships", []) if "author" in a]
         authors_str = ", ".join(authors) if authors else "Not Available"
-
         link = item.get("primary_location", {}).get("landing_page_url", "Not Available")
         citations = item.get("cited_by_count", 0)
         status = item.get("open_access", {}).get("status", "Not Available")
-        pub_date = item.get("publication_date", "Not Available")
 
         results.append({
             "source": "OpenAlex",
@@ -82,7 +82,7 @@ def search_openalex(query="Non-Destructive Testing", rows=5):
 # ========================
 # 2. Semantic Scholar API
 # ========================
-def search_semantic_scholar(query="Non-Destructive Testing", rows=5):
+def search_semantic_scholar(query="Non-Destructive Testing", rows=100, date=None):
     url = "https://api.semanticscholar.org/graph/v1/paper/search"
     params = {
         "query": query,
@@ -97,20 +97,22 @@ def search_semantic_scholar(query="Non-Destructive Testing", rows=5):
         return []
 
     data = response.json()
-    if "data" not in data or len(data["data"]) == 0:
+    if "data" not in data or not data["data"]:
         return []
 
     results = []
-    for idx, item in enumerate(data["data"], start=1):
+    for item in data["data"]:
+        pub_year = str(item.get("year", "Not Available"))
+        # API chỉ có năm → chỉ lọc theo năm nếu cần
+        if date and not pub_year.startswith(date.split("-")[0]):
+            continue
+
         title = item.get("title", "No title")
         abstract = item.get("abstract")
-        
         authors = [a["name"] for a in item.get("authors", [])]
         authors_str = ", ".join(authors) if authors else "Not Available"
-
         link = item.get("url", "Not Available")
         citations = item.get("citationCount", 0)
-        pub_date = str(item.get("year", "Not Available"))
 
         results.append({
             "source": "Semantic Scholar",
@@ -120,23 +122,14 @@ def search_semantic_scholar(query="Non-Destructive Testing", rows=5):
             "link": link,
             "citations": citations,
             "status": "Not Available",
-            "pub_date": pub_date
+            "pub_date": pub_year
         })
-
-    # Sắp xếp theo pub_date giảm dần (mới -> cũ)
-    # results = sorted(
-    #     results, 
-    #     key=lambda x: int(x['pub_date']) if x['pub_date'].isdigit() else 0, 
-    #     reverse=True
-    # )
-
-    return results
 
 
 # ========================
 # 3. arXiv API
 # ========================
-def search_arxiv(query="Non-Destructive Testing", rows=5):
+def search_arxiv(query="Non-Destructive Testing", rows=100, date=None):
     url = "http://export.arxiv.org/api/query"
     params = {
         "search_query": f"all:{query}",
@@ -149,26 +142,26 @@ def search_arxiv(query="Non-Destructive Testing", rows=5):
     try:
         response = requests.get(url, params=params, timeout=30)
         response.raise_for_status()
-    except requests.exceptions.RequestException as e:
+    except requests.exceptions.RequestException:
         return []
 
     root = ET.fromstring(response.content)
     ns = {"arxiv": "http://www.w3.org/2005/Atom"}
-
     entries = root.findall("arxiv:entry", ns)
     if not entries:
         return []
 
     results = []
-    for idx, entry in enumerate(entries, start=1):
+    for entry in entries:
         title = entry.find("arxiv:title", ns).text.strip()
         abstract = entry.find("arxiv:summary", ns).text.strip()
         link = entry.find("arxiv:id", ns).text.strip()
-
         authors = [a.find("arxiv:name", ns).text for a in entry.findall("arxiv:author", ns)]
         authors_str = ", ".join(authors) if authors else "Not Available"
-
         pub_date = entry.find("arxiv:published", ns).text[:10]
+
+        if date and pub_date != date:
+            continue
 
         results.append({
             "source": "arXiv",
@@ -186,7 +179,7 @@ def search_arxiv(query="Non-Destructive Testing", rows=5):
 # ========================
 # 4. CrossRef API
 # ========================
-def search_crossref(query="Non-Destructive Testing", rows=5):
+def search_crossref(query="Non-Destructive Testing", rows=100, date=None):
     url = "https://api.crossref.org/works"
     params = {
         "query": query,
@@ -194,11 +187,13 @@ def search_crossref(query="Non-Destructive Testing", rows=5):
         "sort": "published",
         "order": "desc"
     }
+    if date:
+        params["filter"] = f"from-pub-date:{date},until-pub-date:{date}"
 
     try:
         response = requests.get(url, params=params, timeout=30)
         response.raise_for_status()
-    except requests.exceptions.RequestException as e:
+    except requests.exceptions.RequestException:
         return []
 
     data = response.json()
@@ -206,7 +201,12 @@ def search_crossref(query="Non-Destructive Testing", rows=5):
         return []
 
     results = []
-    for idx, item in enumerate(data["message"]["items"], start=1):
+    for item in data["message"]["items"]:
+        date_parts = item.get("issued", {}).get("date-parts", [[None]])
+        pub_date = "-".join(str(p) for p in date_parts[0] if p is not None)
+        if date and pub_date != date:
+            continue
+
         title = item.get("title", ["No title"])[0]
         abstract = item.get("abstract", "Not Available")
         if abstract and isinstance(abstract, str):
@@ -218,12 +218,8 @@ def search_crossref(query="Non-Destructive Testing", rows=5):
             if full_name:
                 authors.append(full_name)
         authors_str = ", ".join(authors) if authors else "Not Available"
-
         doi = item.get("DOI", "")
         link = f"https://doi.org/{doi}" if doi else "Not Available"
-
-        date_parts = item.get("issued", {}).get("date-parts", [[None]])
-        pub_date = "-".join(str(p) for p in date_parts[0] if p is not None)
         citations = item.get("is-referenced-by-count", 0)
         status = item.get("publisher", "Not Available")
 
@@ -348,7 +344,11 @@ def check_relevance_with_genai(abstract, keywords, threshold=0.7):
     """
 
     try:
-        response = gemini_filter.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-2.5-flash", 
+            contents=prompt,
+            config=GenerateContentConfig(temperature=0)
+        )
         answer = response.text.strip().upper()
         return "YES" in answer
     except Exception as e:
@@ -359,7 +359,7 @@ def check_relevance_with_genai(abstract, keywords, threshold=0.7):
 # =========================================
 # Hàm lọc bài báo không có abstract hoặc không liên quan
 # =========================================
-def filter_irrelevant_papers(results, threshold=0.7, keywords=["ndt"]):
+def filter_irrelevant_papers(results, threshold=0.7, keywords=["Non-Destructive Testing"]):
     """
     Lọc các bài báo không có abstract hoặc không liên quan đến nghiên cứu.
 
@@ -414,7 +414,11 @@ def summarize_with_genai(abstract):
     """
 
     try:
-        response = gemini_summary.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",  # Model chất lượng cao
+            contents=prompt,
+            config=GenerateContentConfig(temperature=0.3)
+        )
         return response.text.strip()
     except Exception as e:
         print(f"[Gemini Error - Summarization] {e}")
@@ -444,25 +448,4 @@ def summarize_filtered_papers(filtered_papers):
             time.sleep(16)  
 
     return filtered_papers
-# ========================
-# TEST FUNCTION
-# ========================
-if __name__ == "__main__":
-    query = "Non-Destructive Testing"
-    combined_results = []
 
-    print("===== Fetching from OpenAlex =====")
-    combined_results.extend(search_openalex(query=query, rows=10))
-
-    print("===== Fetching from Semantic Scholar =====")
-    combined_results.extend(search_semantic_scholar(query=query, rows=10))
-
-    print("===== Fetching from arXiv =====")
-    combined_results.extend(search_arxiv(query=query, rows=10))
-
-    print("===== Fetching from Crossref =====")
-    combined_results.extend(search_crossref(query=query, rows=10))
-
-    # Lưu tất cả vào 1 file
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    merge_and_save(combined_results, f"merged_results_{timestamp}.json")

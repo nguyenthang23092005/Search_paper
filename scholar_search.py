@@ -2,7 +2,7 @@ import os
 import json
 import re
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import List, Dict
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -10,7 +10,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 
-
+def get_target_date(days_ago=1):
+    """Lấy ngày YYYY-MM-DD của hôm qua (hoặc n ngày trước)"""
+    target_date = datetime.now() - timedelta(days=days_ago)
+    return target_date.strftime("%Y")
 class ScholarFinder:
     def __init__(self):
         self.driver = None
@@ -123,127 +126,105 @@ class ScholarFinder:
                 "access_status": "error"
             }
 
-    def search_google_scholar(self, search_query: str, max_papers: int = 5) -> List[Dict]:
+    def search_google_scholar(self, search_query: str, max_papers: int = 20, date: str = None) -> List[Dict]:
         """
-        Tìm kiếm Google Scholar và trả về danh sách bài báo mới nhất
+        Tìm kiếm Google Scholar và trả về danh sách bài báo mới nhất,
+        chỉ lấy đúng ngày (nếu có date).
         """
         print(f"Searching Google Scholar for: {search_query}")
         self.driver.get("https://scholar.google.com")
         time.sleep(3)
 
-        # Nhập từ khóa vào ô tìm kiếm
+        # Nhập từ khóa
         search_box = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.NAME, "q"))
         )
         search_box.clear()
         search_box.send_keys(search_query)
-
-        # Nhấn nút tìm kiếm
         self.driver.find_element(By.XPATH, "//button[@type='submit']").click()
         time.sleep(4)
 
-        # Nhấn "Sort by date" nếu có
+        # Click "Sort by date"
         try:
-            # Chờ tối đa 10s để phần tử xuất hiện
             sort_by_date_button = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located(
                     (By.XPATH, "//a[normalize-space(text())='Sắp xếp theo ngày' or normalize-space(text())='Sort by date']")
                 )
             )
-
-            # Scroll đến vị trí nút
             self.driver.execute_script("arguments[0].scrollIntoView(true);", sort_by_date_button)
             time.sleep(1)
-
-            # Click bằng JS để tránh bị che khuất
             self.driver.execute_script("arguments[0].click();", sort_by_date_button)
             time.sleep(2)
-
             print("✔ Đã click 'Sắp xếp theo ngày'")
         except Exception as e:
             print(f"⚠ Không click được 'Sắp xếp theo ngày': {e}")
 
-
         papers = []
-        try:
-            results = self.driver.find_elements(By.CSS_SELECTOR, "div.gs_r.gs_or.gs_scl")[:max_papers]
-            print(f"Found {len(results)} papers to process")
+        results = self.driver.find_elements(By.CSS_SELECTOR, "div.gs_r.gs_or.gs_scl")[:max_papers]
+        print(f"Found {len(results)} papers to process")
 
-            for idx, result in enumerate(results, 1):
+        for idx, result in enumerate(results, 1):
+            try:
+                title_element = result.find_element(By.CSS_SELECTOR, "h3.gs_rt a")
+                link = title_element.get_attribute("href")
+                basic_title = title_element.text
+
                 try:
-                    # Lấy tiêu đề và link
-                    title_element = result.find_element(By.CSS_SELECTOR, "h3.gs_rt a")
-                    link = title_element.get_attribute("href")
-                    basic_title = title_element.text
+                    authors_text = result.find_element(By.CSS_SELECTOR, "div.gs_a").text
+                except:
+                    authors_text = "Authors not found"
 
-                    # Lấy thông tin tác giả và năm
-                    try:
-                        authors_text = result.find_element(By.CSS_SELECTOR, "div.gs_a").text
-                    except:
-                        authors_text = "Authors not found"
+                pub_date = self.extract_pub_date(authors_text)
 
-                    pub_date = self.extract_pub_date(authors_text)
-
-                    # Lấy số lần trích dẫn
-                    try:
-                        citation_element = result.find_element(By.XPATH, ".//a[contains(text(), 'Cited by')]")
-                        citations = citation_element.text.replace("Cited by ", "")
-                    except:
-                        citations = 0
-
-                    # Mở link để lấy abstract
-                    full_details = self.get_paper_details_from_link(link, idx)
-
-                    # Chuẩn hóa dữ liệu output
-                    paper = {
-                        "source": "Google Scholar",
-                        "title": full_details['title'],
-                        "abstract": full_details['abstract'],
-                        "authors": authors_text,
-                        "link": link,
-                        "citations": citations,
-                        "status": "Open Access",  # Google Scholar không trả quyền truy cập
-                        "pub_date": pub_date
-                    }
-
-                    papers.append(paper)
-                    print(f"✓ Processed paper {idx}: {paper['title'][:80]}")
-
-                    time.sleep(3)
-
-                except Exception as e:
-                    print(f"Error processing paper {idx}: {e}")
+                # 🔹 Lọc theo ngày (nếu có yêu cầu)
+                if date and pub_date != date:
+                    print(f"✘ Bỏ qua paper {idx} vì năm {pub_date} khác {date}")
                     continue
 
-        except Exception as e:
-            print(f"Error during search: {e}")
+                try:
+                    citation_element = result.find_element(By.XPATH, ".//a[contains(text(), 'Cited by')]")
+                    citations = citation_element.text.replace("Cited by ", "")
+                except:
+                    citations = 0
 
-        # Nếu không thể click sort by date -> sắp xếp thủ công
-        try:
-            papers.sort(key=lambda x: int(x['pub_date']) if x['pub_date'].isdigit() else 0, reverse=True)
-        except Exception as e:
-            print(f"⚠ Could not sort manually: {e}")
+                full_details = self.get_paper_details_from_link(link, idx)
+
+                paper = {
+                    "source": "Google Scholar",
+                    "title": full_details['title'],
+                    "abstract": full_details['abstract'],
+                    "authors": authors_text,
+                    "link": link,
+                    "citations": citations,
+                    "status": "Open Access",
+                    "pub_date": pub_date
+                }
+
+                papers.append(paper)
+                print(f"✓ Processed paper {idx}: {paper['title'][:80]}")
+                time.sleep(3)
+
+            except Exception as e:
+                print(f"Error processing paper {idx}: {e}")
+                continue
 
         print(f"\n=== Successfully processed {len(papers)} papers ===")
         return papers
 
-    def run(self, keyword: str, max_papers: int = 5):
-        """
-        Wrapper để chạy từ setup browser -> search -> đóng browser
-        """
+    def run(self, keyword: str, max_papers: int = 100, date: str = None):
         self.setup_browser()
         try:
-            return self.search_google_scholar(keyword, max_papers)
+            return self.search_google_scholar(keyword, max_papers, date)
         finally:
             if self.driver:
                 self.driver.quit()
 
 
-def run_scholar_search(keyword: str, max_papers: int = 5):
+def run_scholar_search(keyword: str, max_papers: int = 100):
     finder = ScholarFinder()
-    return finder.run(keyword, max_papers)
+    date_str = get_target_date(days_ago=1)
+    return finder.run(keyword, max_papers, date=date_str)
 
 
 
-if __name__ == "__main__":
-    run_scholar_search("ndt", 5)
+

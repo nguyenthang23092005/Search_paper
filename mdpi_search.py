@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import asyncio
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import nest_asyncio
 nest_asyncio.apply()
 import asyncio
@@ -20,8 +20,8 @@ async def mdpi_search(keyword: str = "ndt", max_papers: int = 5):
     if not keyword:
         print("❌ Bạn chưa nhập từ khóa!")
         return
-    llm = ChatGoogle(model="gemini-2.5-flash", api_key=os.getenv("GOOGLE_API_KEY"))
-
+    llm = ChatGoogle(model="gemini-2.5-flash", api_key=os.getenv("GEMINI_API_KEY"))
+    yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
     task = f"""
 You are an autonomous agent. Your task is to:
 
@@ -29,9 +29,9 @@ You are an autonomous agent. Your task is to:
 2. Locate the search interface—this may be a global search box or journal-specific “Advanced Search” (e.g., see the search box available on journal pages such as “Computers”).
 3. Enter the keyword: "{keyword}".
 4. Submit the search.
-5. Once results are presented, **filter** them to include only papers published **from September 1, 2025** onward:
+5. Once results are presented, **filter** them to include only papers published **from {yesterday}** onward:
    - If MDPI provides a "Publication Date" or date-range filter, set it accordingly.
-   - Otherwise, manually check each result’s publication date and only select those with a date of September 1, 2025 or later.
+   - Otherwise, manually check each result’s publication date and only select those with a date of {yesterday} or later.
 6. Click on the **RSS feed** option for the search results (if available).
 7. From the **top {max_papers} matching papers** (by relevance or latest date), extract:
    a. Rank paper
