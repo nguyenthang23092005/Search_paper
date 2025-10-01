@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import asyncio
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import nest_asyncio
 nest_asyncio.apply()
 import asyncio
@@ -21,15 +21,17 @@ async def springer_search(keyword: str = "ndt", max_papers: int = 5):
         print("❌ Bạn chưa nhập từ khóa!")
         return
 
-    llm = ChatGoogle(model="gemini-2.5-flash", api_key=os.getenv("GOOGLE_API_KEY"))
-
+    llm = ChatGoogle(model="gemini-2.5-flash", api_key=os.getenv("GEMINI_API_KEY"))
+    yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
     task = f"""
 You are an autonomous agent. Your task is to:
 1. Open the website: https://link.springer.com/search
 2. Locate the search box and type the keyword: "{keyword}".
 3. Press Enter to search.
-4. Click RSS feed 
-5. For the **top {max_papers} papers**, perform the following steps:
+4. Use any available filters (date range, publication date) to only include papers published on or after {yesterday}.
+   - If no filter exists, manually check each result’s publication date and ignore papers older than {yesterday}.
+5. Click the RSS feed option for the search results (if available).
+6. For the **top {max_papers} papers**, perform the following steps:
     - Extract the following information for each latest paper:
         a. Rank paper
         b. Title of the paper.
@@ -40,7 +42,7 @@ You are an autonomous agent. Your task is to:
         g. Status of the paper (e.g., "Available", "Paywalled", "Preprint", etc.).
         h. The public date.
 
-6. Return the final extracted data as a **JSON list**.
+7. Return the final extracted data as a **JSON list**.
    - Each item in the JSON list must have the following keys:
      ["rank", "title", "abstract", "authors", "link", "citations", "status", "pub_date"]
 
