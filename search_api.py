@@ -1,12 +1,9 @@
 import requests
 import json
 import os
-from datetime import datetime, timedelta
 import xml.etree.ElementTree as ET
 from dotenv import load_dotenv
 import time
-from langchain_google_genai import ChatGoogleGenerativeAI
-import google.generativeai as genai
 from google.genai import Client
 from google.genai.types import GenerateContentConfig
 load_dotenv()
@@ -316,7 +313,7 @@ def enrich_with_firecrawl(results):
         if (not paper.get("abstract") or paper["abstract"] == "Not Available") and paper.get("link") != "Not Available":
             print(f"Fetching abstract with Firecrawl for: {paper['title']}")
             paper["abstract"] = fetch_abstract_firecrawl(paper["link"])
-            time.sleep(2)
+            time.sleep(4)
     return results
 
 
