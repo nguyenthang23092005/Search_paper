@@ -10,7 +10,7 @@ import os
 import glob
 import asyncio
 import sys
-from dotenv import load_dotenv, set_key
+from dotenv import load_dotenv
 from utils import filter_duplicates, save_results_to_json, save_results_to_database,get_latest_json
 
 # ===================== WINDOWS FIX =====================
