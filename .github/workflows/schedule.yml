@@ -24,5 +24,12 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Run main script
-        run: python run.py
+      - name: Run main script 
+        run: python run.py 
+      - name: Commit and push results 
+        run: | 
+          git config user.name "github-actions[bot]" 
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com" 
+          git add results/ database/ 
+          git commit -m "new paper $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit" 
+          git push
