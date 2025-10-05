@@ -21,6 +21,9 @@ class ScholarFinder:
     def setup_browser(self):
         """Setup Chrome browser với các tùy chọn an toàn"""
         options = Options()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--disable-blink-features=AutomationControlled')
