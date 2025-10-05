@@ -313,7 +313,7 @@ def enrich_with_firecrawl(results):
         if (not paper.get("abstract") or paper["abstract"] == "Not Available") and paper.get("link") != "Not Available":
             print(f"Fetching abstract with Firecrawl for: {paper['title']}")
             paper["abstract"] = fetch_abstract_firecrawl(paper["link"])
-            time.sleep(4)
+            time.sleep(6)
     return results
 
 
