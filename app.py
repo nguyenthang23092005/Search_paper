@@ -1,21 +1,13 @@
 import streamlit as st
-from springer_search import run_springer_search
-from mdpi_search import run_mdpi_search
 from scholar_search import run_scholar_search
 from search_api import search_openalex,  search_arxiv, search_crossref,enrich_with_firecrawl, summarize_filtered_papers, filter_irrelevant_papers
 import pandas as pd
-from datetime import datetime
 import json
 import os
 import glob
-import asyncio
-import sys
 from dotenv import load_dotenv
 from utils import filter_duplicates, save_results_to_json, save_results_to_database,get_latest_json
 
-# ===================== WINDOWS FIX =====================
-if sys.platform.startswith("win"):
-    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
 # ===================== PAGE CONFIG =====================
 st.set_page_config(page_title="Paper Search App", layout="wide")
@@ -38,7 +30,6 @@ load_dotenv(ENV_PATH)
 # ===================== TABS =====================
 tab1, tab2 = st.tabs([
     "🌐 All APIs + Scholar",
-    #"📘 Springer + MDPI",
     "📁 Danh sách kết quả"
 ])
 
@@ -118,88 +109,6 @@ with tab1:
                 )
 
 
-
-
-
-# # ===================== TAB 2 =====================
-# with tab2:
-#     st.subheader("🔹 Tìm kiếm trên Springer và MDPI")
-
-#     # --- Nhập Google API Key chỉ hiển thị tại đây ---
-#     st.markdown("### ⚙️ Cấu hình Google API Key")
-#     gg_api_key = st.text_input(
-#         "Nhập Google API Key",
-#         type="password",
-#         placeholder="Nhập API Key..."
-#     )
-
-#     if st.button("💾 Lưu Google API Key"):
-#         if gg_api_key.strip():
-#             set_key(ENV_PATH, "GOOGLE_API_KEY", gg_api_key.strip())
-#             st.success("✅ API Key đã được lưu vào file `.env`")
-#         else:
-#             st.warning("⚠️ Vui lòng nhập API Key trước khi lưu")
-
-#     # Nhập từ khóa và số lượng bài một lần
-#     keyword_tab2 = st.text_input("Nhập từ khóa tìm kiếm (Springer + MDPI):", key="keyword_tab2")
-#     max_results_tab2 = st.number_input("Số lượng bài muốn lấy mỗi nguồn", min_value=1, max_value=200, value=10, key="max_results_tab2")
-
-#     if st.button("🔍 Tìm kiếm Springer + MDPI"):
-#         if not keyword_tab2.strip():
-#             st.warning("⚠️ Vui lòng nhập từ khóa tìm kiếm!")
-#         else:
-#             with st.spinner("Đang tìm kiếm trên Springer và MDPI..."):
-#                 springer_result = run_springer_search(keyword_tab2, max_results_tab2)
-#                 mdpi_result = run_mdpi_search(keyword_tab2, max_results_tab2)
-
-#                 springer_data = [] if "error" in springer_result else springer_result["data"]
-#                 mdpi_data = [] if "error" in mdpi_result else mdpi_result["data"]
-
-#                 if "error" in springer_result:
-#                     st.error(f"Springer: {springer_result['error']}")
-#                 if "error" in mdpi_result:
-#                     st.error(f"MDPI: {mdpi_result['error']}")
-
-#                 # Hợp nhất kết quả
-#                 merged_results = springer_data + mdpi_data
-
-#                 # enrich bằng Firecrawl
-#                 st.info("⏳ Đang bổ sung abstract...")
-
-#                 enriched_results = enrich_with_firecrawl(merged_results)
-
-#                 # Lọc trùng theo hôm qua
-#                 st.info("⏳ Đang lọc bài báo trùng...")
-#                 unique_results = filter_duplicates(enriched_results)
-
-#                 # Lọc bài không liên quan
-#                 st.info("⏳ Đang lọc bài không liên quan...")
-#                 filter_results = filter_irrelevant_papers(unique_results)
-
-#                 # Tóm tắt abstract
-#                 st.info("⏳ Đang tóm tắt abstract...")
-#                 summarize_results = summarize_filtered_papers(filter_results)
-
-#                 # Lưu kết quả
-#                 saved_file = save_results_to_json(
-#                     summarize_results,
-#                     output_dir=RESULTS_DIR_AGENT,
-#                     prefix=f"springer_mdpi_{keyword_tab2.replace(' ', '_')}"
-#                 )
-#                 if saved_file:
-#                     save_results_to_database(saved_file)
-
-#                 st.success(f"✅ Đã lưu kết quả enriched vào: {saved_file}")
-
-#                 df = pd.DataFrame(summarize_results)
-#                 st.dataframe(df)
-
-#                 st.download_button(
-#                     label="📥 Tải kết quả JSON",
-#                     data=open(saved_file, "rb").read(),
-#                     file_name=os.path.basename(saved_file),
-#                     mime="application/json"
-#                 )
 
 
 # ===================== TAB 2 =====================
