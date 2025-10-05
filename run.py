@@ -1,4 +1,5 @@
 from scholar_search import run_scholar_search
+# from ss import run_scholar_search
 from search_api import search_openalex,  search_arxiv, search_crossref,enrich_with_firecrawl, summarize_filtered_papers, filter_irrelevant_papers
 from dotenv import load_dotenv
 from utils import filter_duplicates, save_results_to_json, save_results_to_database
@@ -19,7 +20,7 @@ if not os.path.exists(ENV_PATH):
 load_dotenv(ENV_PATH)
 
 keyword_tab1 = "Non-Destructive Testing"
-max_results_tab1 = 30
+max_results_tab1 = 1
 
 
 # 1. Gọi các API
