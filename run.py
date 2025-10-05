@@ -20,7 +20,7 @@ if not os.path.exists(ENV_PATH):
 load_dotenv(ENV_PATH)
 
 keyword_tab1 = "Non-Destructive Testing"
-max_results_tab1 = 1
+max_results_tab1 = 30
 
 
 # 1. Gọi các API
