@@ -317,7 +317,7 @@ def enrich_with_firecrawl(results):
     return results
 
 
-def check_relevance_with_genai(abstract, keywords, threshold=0.7):
+def check_relevance_with_genai(abstract, keywords):
     """
     Kiểm tra abstract có liên quan tới các từ khóa nghiên cứu (vd: NDT) hay không.
     Trả về True/False.
@@ -325,7 +325,6 @@ def check_relevance_with_genai(abstract, keywords, threshold=0.7):
     Parameters:
         abstract (str): Abstract của bài báo.
         keywords (list): Danh sách từ khóa liên quan đến chủ đề nghiên cứu.
-        threshold (float): Ngưỡng độ tin cậy (chưa dùng trực tiếp, prompt tự quyết định).
 
     Returns:
         bool: True nếu bài báo liên quan, False nếu không.
